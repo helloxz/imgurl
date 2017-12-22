@@ -1,0 +1,74 @@
+.ajax-file-upload-container {
+	display: none;
+}
+
+#fileuploader {
+	width:100%;
+}
+.ajax-upload-dragdrop {
+	height:200px;
+}
+.ajax-file-upload {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#loading{
+	margin:0;
+	padding:0;
+	display:none;
+	width:100%;
+	position:fixed;
+}
+#fileuploader {
+	margin-top:10%;
+}
+#relink{
+	display: none;
+	margin-top:36px;
+}
+#relink lable{
+	color:#2BD5AA;
+	padding:10px;
+}
+#msg{
+	margin:0;
+	padding:0;
+	width:100%;
+	position:fixed;
+	display: none;
+	z-index: 100;
+	top:60px;
+}
+.msg{
+	color:green;
+	border:1px solid #EFEFEF;
+	background-color:#E6E6E6;
+	text-align:center;
+	padding:12px;
+	border-radius:5px;
+	width:16%;
+	margin:auto;
+	font-size:16px;
+}
+#img-box{
+	margin-bottom:20px;
+}
+#menu{
+	margin:0;
+	padding:0;
+	width:100%;
+	background-color:#222222;
+}
+#menu .navbar {
+	margin-bottom:0;
+}
+
+#footer{
+	width:100%;
+	background-color: #F5F5F5;
+	color:#999999;
+	position:fixed;
+	bottom:0;
+	padding:14px;
+}
