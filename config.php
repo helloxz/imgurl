@@ -6,6 +6,6 @@
 		'admindir'	=>	'upload',	//管理员上传目录，一般保持默认
 		'username'	=>	'xiaoz',	//管理员账号
 		'password'	=>	'xiaoz.me',	//管理员密码
-		'tinypng'	=>	''			//使用TinyPNG压缩图片
+		'tinypng'	=>	''			//使用TinyPNG压缩图片，填写TinyPNG KEY，为空则不启用压缩
 	);
 ?>
