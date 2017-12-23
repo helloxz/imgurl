@@ -1,13 +1,15 @@
 .ajax-file-upload-container {
 	display: none;
 }
-
-#fileuploader {
-	width:100%;
-}
-.ajax-upload-dragdrop {
+.ajax-upload-dragdrop{
+	
 	height:200px;
 }
+#fileuploader {
+	/*width:100%;*/
+}
+
+
 .ajax-file-upload {
 	margin-left:auto;
 	margin-right:auto;
@@ -19,6 +21,7 @@
 	display:none;
 	width:100%;
 	position:fixed;
+	clear:both;
 }
 #fileuploader {
 	margin-top:10%;
@@ -26,6 +29,7 @@
 #relink{
 	display: none;
 	margin-top:36px;
+	width:100%;
 }
 #relink lable{
 	color:#2BD5AA;
@@ -39,6 +43,7 @@
 	display: none;
 	z-index: 100;
 	top:60px;
+	clear:both;
 }
 .msg{
 	color:green;
@@ -62,7 +67,10 @@
 }
 #menu .navbar {
 	margin-bottom:0;
+	border-left:0;
+	border-right:0;
 }
+
 
 #footer{
 	width:100%;

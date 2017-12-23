@@ -1,6 +1,9 @@
 <?php
 	error_reporting(E_ALL^E_NOTICE^E_WARNING^E_DEPRECATED);
 	include_once('./config.php');
+
+
+	$dir = check($_COOKIE['uid'],$config['username'],$config['password'],$config['userdir'],$config['admindir']);
 	
 	$img_name = $_FILES["file"]["name"];	//文件名称
 	$suffix = substr(strrchr($img_name, '.'), 1);//文件后缀
@@ -18,7 +21,7 @@
 	$img_error = $_FILES["file"]["error"];	//错误代码
 	$max_size = 2097152;		//最大上传大小2M
 	$current_time = date('ym',time());	//当前月份
-	$dir = 'uploads/'.$current_time;	//图片目录
+	$dir = $dir.'/'.$current_time;	//图片目录
 	$dir_name = $dir.'/'.$new_name;		//完整路径
 	
 	//使用exif_imagetype函数来判断文件类型
@@ -99,5 +102,18 @@
 		$re_data = array("linkurl" => $img_url,width => $img_width,"height" => $img_height,"status" => 'no');
 		//返回json格式
 		echo json_encode($re_data);
+	}
+
+	//判断用户是否登录,5个参数，cookie,用户名、密码、用户上传目录、管理员上传目录
+	function check($cookie,$user,$pass,$udir,$adir){
+		$loginid = $cookie;
+		$userid = md5($user.$pass);
+		
+		if($loginid == $userid) {
+			return $adir;
+		}
+		else {
+			return $udir;
+		}
 	}
 ?>

@@ -1,5 +1,5 @@
 $(document).ready(function()
-{
+{	
 	$("#fileuploader").uploadFile({
 	url:"./upload.php",
 	maxFileSize:"2097152",
@@ -44,3 +44,4 @@ function copy(url) {
 		}
 	});
 }
+
