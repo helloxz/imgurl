@@ -43,6 +43,7 @@
 							<ul class="nav navbar-nav">
 								<li><a href="./explore.php">探索发现</a></li>
 								<li><a href="./pro.php">捐赠版</a></li>
+								<li><a href="https://wiki.xiaoz.me/docs/imgurl/" rel = "nofollow" target = "_blank">帮助文档</a></li>
 								<li><a href="./about.php">关于</a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
