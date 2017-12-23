@@ -2,7 +2,18 @@
 	error_reporting(E_ALL^E_NOTICE^E_WARNING^E_DEPRECATED);
 	include_once('./config.php');
 
+	//检测是否使用Tinypng压缩图片
+	if($config['tinypng'] != '') {
+		//载入SDK
+		require_once("lib/Tinify/Exception.php");
+		require_once("lib/Tinify/ResultMeta.php");
+		require_once("lib/Tinify/Result.php");
+		require_once("lib/Tinify/Source.php");
+		require_once("lib/Tinify/Client.php");
+		require_once("lib/Tinify.php");
+	}
 
+	//验证用户，并设置上传目录
 	$dir = check($_COOKIE['uid'],$config['username'],$config['password'],$config['userdir'],$config['admindir']);
 	
 	$img_name = $_FILES["file"]["name"];	//文件名称
@@ -80,10 +91,8 @@
 	    else {
 		    //如果上传成功
 		    if(move_uploaded_file($img_tmp,$dir_name)){
-			    //设置自己的TinyPNG API KEY
-			 //   Tinify\setKey("TinyPNG API KEY");
-				//Tinify\fromFile($dir_name)->toFile($dir_name);
-			    //请在下面设置您自己的域名
+			   	//压缩图片
+			    tinypng($config['tinypng'],$dir_name);
 			    $img_url = $config['domain'].$dir_name;		//自定义图片路径
 			    $img_info = getimagesize($dir_name);
 			    $img_width = $img_info['0'];	//图片宽度
@@ -94,7 +103,7 @@
 		    }
 		    //没有上传成功
 		    else{
-			    echo md5("360baidu103.jpg");
+			    echo "上传失败！";
 		    }
 	    }
 	}
@@ -114,6 +123,17 @@
 		}
 		else {
 			return $udir;
+		}
+	}
+	//压缩图片
+	function tinypng($api,$imgfile){
+		if($api == '') {
+			return $imgfile;
+		}
+		else{
+			Tinify\setKey($api);
+			Tinify\fromFile($imgfile)->toFile($imgfile);
+			return $imgfile;
 		}
 	}
 ?>
