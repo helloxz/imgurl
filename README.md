@@ -11,7 +11,8 @@ ImgURL是一个简单、纯粹的图床程序，使用PHP脚本开发，不需�
 - [x] 浏览与删除图片
 - [ ] 图片压缩
 - [ ] 多图上传
-- [ ] 图片鉴黄 
+- [ ] 图片鉴黄
+- [ ] API上传
 
 ### 安装
 <p>访问：<a href="https://github.com/helloxz/imgurl/archive/master.zip" target = "_blank" rel = "nofollow">master.zip</a>下载最新版ImgURL程序，放到您的站点根目录并解压。修改一下<code>config.php</code>设置你自己的域名和密码，访问<code>http(s)://domain.com/</code>即可，就是这么简单。</p>
