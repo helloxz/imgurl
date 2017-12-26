@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /recycle/
+Disallow: /sdk/
+Disallow: /api/
+Disallow: /temp/
+Disallow: /upload/
+Disallow: /static/

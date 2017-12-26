@@ -59,18 +59,36 @@
 	function delete($imgname,$userdir,$admindir) {
 		//字符串分割
 		$imgdir = explode("/",$imgname);
-		//只允许删除用户目录和管理员目录
-		if(($imgdir[0] == $userdir) || ($imgdir[0] == $admindir)){
-			if(unlink($imgname)) {
-				echo 'ok';	//删除图片成功
-			}
-			else {
-				echo '删除失败，可能是图片不存在。';
-			}
-		}
-		else {
-			echo '非法操作';
-			exit;
+		//只允许删除用户目录/管理员目录/回收站目录
+		switch ( $imgdir[0] )
+		{
+			case $userdir:
+				if(unlink($imgname)) {
+					echo 'ok';	//删除图片成功
+				}
+				else {
+					echo '删除失败，可能是图片不存在。';
+				}
+				break;
+			case $admindir:
+				if(unlink($imgname)) {
+					echo 'ok';	//删除图片成功
+				}
+				else {
+					echo '删除失败，可能是图片不存在。';
+				}
+				break;
+			case 'recycle':	
+				if(unlink($imgname)) {
+					echo 'ok';	//删除图片成功
+				}
+				else {
+					echo '删除失败，可能是图片不存在。';
+				}
+				break;	
+			default:
+				echo '非法操作';
+				break;
 		}
 	}
 ?>

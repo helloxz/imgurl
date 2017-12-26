@@ -8,6 +8,8 @@
 	<meta name="keywords" content="ImgURL,免费图床,图床程序,小z图床,XZ Pic" />
 	<meta name="description" content="ImgURL是一个简单、纯粹的图床程序，让个人图床多一个选择。" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="favicon.ico"  type="image/x-icon" />
+	<link rel="Bookmark" href="favicon.ico" />
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./static/uploadfile.css" rel="stylesheet">
 	<link href="./static/style.css" rel="stylesheet">
@@ -51,8 +53,8 @@
 									if(isset($_COOKIE['uid'])) {
 										include_once('./config.php');
 										$mydir = $config['admindir'];
+										echo "<li><a href='./recycle.php'>回收站</a></li>";
 										echo "<li><a href='./explore.php?dir=$mydir'>管理员</a></li>";
-										echo " | ";
 										echo "<li><a href='./functions.php?type=logout'>退出</a></li>";
 									}
 									else {

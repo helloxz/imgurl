@@ -1,7 +1,35 @@
 <?php
 	//载入header
 	include_once('./header.php');
+	include_once('./config.php');
 ?>
+<!--是否启用鉴黄-->
+<?php
+	//如果启用鉴黄
+	if($identify['eroticism'] == true) {
+		$eroticism = 1;
+	}
+	else{
+		$eroticism = 0;
+	}
+	//判断启用图片压缩
+	switch ( $config['tinypng'] )
+	{	
+		//为空，没启用
+		case '':
+			$tinypng = 0;
+			break;		
+		default:
+			$tinypng = 1;
+			break;
+	}
+	
+?>
+<div id="eroticism" style = "display: none;"><?php echo $eroticism; ?></div>
+<!--是否启用鉴黄END-->
+<!--是否启用图片压缩-->
+<div id="tinypng" style = "display: none;"><?php echo $tinypng; ?></div>
+<!--是否启用图片压缩END-->
 	<div style = "clear:both;"></div>
 	<div class="container" style = "margin-bottom:40px;">
 		<div class="row">

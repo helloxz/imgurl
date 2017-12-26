@@ -10,8 +10,9 @@ ImgURL是一个简单、纯粹的图床程序，使用PHP脚本开发，不需�
 - [x] 一键生成链接
 - [x] 浏览与删除图片
 - [x] 图片压缩
+- [x] 图片鉴黄
+- [ ] 图片水印
 - [ ] 多图上传
-- [ ] 图片鉴黄
 - [ ] API上传
 
 ### 安装
@@ -24,5 +25,5 @@ Demo：[http://imgurl.org/](http://imgurl.org/)
 ![](https://i.bk.tn/uploads/1712/230615302734.png)
 
 ### 联系我
-* [https://www.xiaoz.me/](https://www.xiaoz.me/)
+* Blog:[https://www.xiaoz.me/](https://www.xiaoz.me/)
 * QQ:337003006
