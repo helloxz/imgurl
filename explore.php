@@ -4,6 +4,9 @@
 	include_once('./config.php');
 	//载入header
 	include_once('./header.php');
+	//获取页数
+	$page = $_GET['page'];
+	
 	$current_time = date('ym',time());	//当前月份
 
 	$time = $_GET['time'];
@@ -52,13 +55,38 @@
     }
     return $files;
 	}
+
+	//如果页数不存在或者小于1
+	if((!isset($page)) || ($page <= 1)) {
+		$page = 1;
+		$i = 0;
+		$num = 15;
+	}
+	if($page > 1) {
+		$i = ($page - 1) * 15;
+		$num = $i + 15;
+	}
 	 
 	$path = $mydir.'/'.$time;
 	$dir = new RecursiveDirectoryIterator($path);
 	$fname = get_files($dir);
-	$num = count($fname) - 1;
+	$allnum = count($fname) - 1;		//文件总数
+	//echo $allnum;
+	//最大页数
+	$allpage = round($allnum / 15,0);
+	$uppage = $page - 1;			//上一页
+	$downpage = $page + 1;			//下一页
 	
-	for($i = 0;$i <= $num;$i++) {
+	$downpage = ($page >= $allpage) ? $page : $downpage;
+	//echo $allpage;
+	
+	//如果文件数小于15
+	//$num = count($allnum < 15) ? $allnum : $num;
+	if($allnum <= 15) {
+		$num = $allnum;
+	}
+	
+	for($i;$i <= $num;$i++) {
 		$fname[$i] = str_replace("\\","/",$fname[$i]);
 		//如果文件是空的，则终止循环
 ?>
@@ -79,6 +107,8 @@
 				<?php } ?>
 			</tbody>
 		</table>
+		<a href="?page=<?php echo $uppage; ?>" class = "btn btn-primary"><span class = "glyphicon glyphicon-chevron-left"></span> 上一页</a>  
+		<a href="?page=<?php echo $downpage; ?>" class = "btn btn-primary">下一页 <span class = "glyphicon glyphicon-chevron-right"></span></a>
 		</div>
 		</div>
 	</div>
