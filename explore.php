@@ -27,6 +27,8 @@
 	//目录存在,并且是管理员目录
 	if($mydir == $config['admindir']) {
 		$mydir = $config['admindir'];
+		//改变下管理员链接地址
+		$geturl = "&dir=$mydir";
 	}
 ?>
 <div class="container" style = "margin-top:40px;">
@@ -107,8 +109,8 @@
 				<?php } ?>
 			</tbody>
 		</table>
-		<a href="?page=<?php echo $uppage; ?>" class = "btn btn-primary"><span class = "glyphicon glyphicon-chevron-left"></span> 上一页</a>  
-		<a href="?page=<?php echo $downpage; ?>" class = "btn btn-primary">下一页 <span class = "glyphicon glyphicon-chevron-right"></span></a>
+		<a href="?page=<?php echo $uppage.$geturl; ?>" class = "btn btn-primary"><span class = "glyphicon glyphicon-chevron-left"></span> 上一页</a>  
+		<a href="?page=<?php echo $downpage.$geturl; ?>" class = "btn btn-primary">下一页 <span class = "glyphicon glyphicon-chevron-right"></span></a>
 		</div>
 		</div>
 	</div>
