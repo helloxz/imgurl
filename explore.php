@@ -30,6 +30,12 @@
 		//改变下管理员链接地址
 		$geturl = "&dir=$mydir";
 	}
+	//还没有目录
+	if(!file_exists($mydir."/".$time."/")) {
+		//echo $mydir."/".$time."/";
+		echo "<h3 class = 'text-center'>空空如也！</h3>";
+		exit;
+	}
 ?>
 <div class="container" style = "margin-top:40px;">
 	<div class="row">
