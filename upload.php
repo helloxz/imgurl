@@ -89,6 +89,7 @@
 			    $re_data = array("linkurl" => $img_url,width => $img_width,"height" => $img_height,"status" => 'ok');
 			    //返回json格式
 			    echo json_encode($re_data);
+			    recordImageInfo($img_name , $dir_name, $img_url);// 记录文件原始名称，文件路径和文件url
 			    exit;
 		    }
 		    //没有上传成功
@@ -114,5 +115,21 @@
 		else {
 			return $udir;
 		}
+	}
+
+	// 记录图片信息并初始化数据库（如果不存在）
+	function recordImageInfo($rawname, $path, $url) {
+		global $config;
+		include_once("./medoo.php");
+		$db = new medoo([
+			'database_type' => 'sqlite',
+			'database_file' => $config['dbfile']
+		]);
+		$ret = $db->query("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='pictures'")->fetchAll();
+		if ($ret[0][0] == 0) {
+			$db->exec("CREATE TABLE [pictures] ([id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, [raw] VARCHAR, [path] VARCHAR, [url] TEXT)");
+			$db->exec("CREATE INDEX [url] ON [pictures] ([url])");
+		}
+		$db->exec("insert into pictures (raw, path, url) values (".$db->pdo->quote($rawname).",\"$path\",\"$url\")");
 	}
 ?>
