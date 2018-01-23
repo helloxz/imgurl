@@ -1,6 +1,21 @@
 <?php
 	error_reporting(E_ALL^E_NOTICE^E_WARNING^E_DEPRECATED);
 	include_once('./config.php');
+	require_once( 'sdk/Medoo.php' );
+	
+	use Medoo\Medoo;
+	$database = new medoo([
+	    'database_type' => 'sqlite',
+	    'database_file' => 'data/imgurl.db3'
+	]);
+
+	//用户IP
+	$ip = $_SERVER["REMOTE_ADDR"]; 
+	//获取当前时间
+	$thetime = date('Y-m-d H:i:s',time());
+	//获取浏览器信息
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+	
 
 	//验证用户，并设置上传目录
 	$dir = check($_COOKIE['uid'],$config['username'],$config['password'],$config['userdir'],$config['admindir']);
@@ -87,9 +102,17 @@
 			    $img_width = $img_info['0'];	//图片宽度
 			    $img_height = $img_info['1'];	//图片高度
 			    $re_data = array("linkurl" => $img_url,width => $img_width,"height" => $img_height,"status" => 'ok');
-			    //返回json格式
-			    echo json_encode($re_data);
-			    exit;
+			    $last_id = $database->insert("uploads",["dir" => $dir_name,"date" => $thetime,"ip" => $ip,"method" => $ua]);
+
+			    //写入成功
+			    if($last_id) {
+				    //返回json格式
+				    echo json_encode($re_data);
+				    exit;
+			    }
+			    else{
+				    echo "写入数据库失败！";
+			    }
 		    }
 		    //没有上传成功
 		    else{

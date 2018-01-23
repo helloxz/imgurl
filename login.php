@@ -1,6 +1,6 @@
 <?php
 	//载入header
-	include_once('./header.php');
+	include_once('tpl/header.php');
 ?>
 <!--登录页面-->
 <div class="container" style = "margin-top:40px;">
@@ -48,5 +48,5 @@
 <!--登录页面end-->
 <?php
 	//载入页脚
-	include_once('./footer.php');
+	include_once('tpl/footer.php');
 ?>

@@ -3,7 +3,7 @@
 	//载入配置
 	include_once('./config.php');
 	//载入header
-	include_once('./header.php');
+	include_once('tpl/header.php');
 	//获取页数
 	$page = $_GET['page'];
 	
@@ -150,5 +150,5 @@
 
 <?php
 	//载入页脚
-	include_once('./footer.php');
+	include_once('tpl/footer.php');
 ?>

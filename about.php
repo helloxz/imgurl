@@ -1,5 +1,5 @@
 <?php
-	include_once('header.php');
+	include_once('tpl/header.php');
 ?>
 <div class="container" style = "margin-top:40px;">
 	<div class="row">
@@ -30,5 +30,5 @@
 	</div>
 </div>
 <?php
-	include_once('footer.php');
+	include_once('tpl/footer.php');
 ?>

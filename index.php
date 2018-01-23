@@ -1,6 +1,6 @@
 <?php
 	//载入header
-	include_once('./header.php');
+	include_once('tpl/header.php');
 	include_once('./config.php');
 ?>
 <!--是否启用鉴黄-->
@@ -79,5 +79,5 @@
 	<!--上传成功END-->
 <?php
 	//载入页脚
-	include_once('./footer.php');
+	include_once('tpl/footer.php');
 ?>
