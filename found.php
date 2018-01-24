@@ -4,21 +4,31 @@
 	include_once('./config.php');
 	//载入header
 	include_once('tpl/header.php');
-	require_once( 'sdk/Medoo.php' );
 	
-	use Medoo\Medoo;
-	$database = new medoo([
-	    'database_type' => 'sqlite',
-	    'database_file' => 'data/imgurl.db3'
-	]);
+	//获取当前时间
+	$thetime = date('Y-m',time());
+	$query = "SELECT `id`,`dir` FROM `uploads` WHERE (`date` LIKE '%2018-01%') AND 'user' = 'user' ORDER BY random() LIMIT 10";
+	$datas = $database->query($query)->fetchAll();
+	//print_r($datas);
+	//var_dump($datas);
+	//var_dump( $database->log() );
+	
+	//$datas = $database->select("uploads",[
+	//	"id",
+	//	"dir"
+	//],[
+	//	"ORDER" => "random()",
+	//	"LIMIT" => 10,
+	//	"date[~]" 	=> $thetime,
+	//	"user"	=> 'user'
+	//]);
+	//var_dump( $database->log() );
+	$num = $database->count("uploads",["date[~]" => $thetime]);
 
-	$datas = $database->select("uploads",[
-		"id",
-		"dir"
-	],[
-		"ORDER" => "random()",
-		"LIMIT" => 10
-	]);
+	//如果图片大于10张
+	if($num > 10){
+		$num = 10;
+	}
 	//print_r($datas);
 	
 ?>
@@ -34,7 +44,7 @@
 			<table class="table table-striped">
 			<tbody>
 <?php
-	for($i = 0;$i < 10;$i++) {
+	for($i = 0;$i < $num;$i++) {
 		//如果文件是空的，则终止循环
 		$imgdir = $datas[$i]['dir'];
 ?>
@@ -44,13 +54,6 @@
 						echo "<a href = "."'".$config['domain'].$imgdir."' target = '_blank'>"."$imgdir</a>";
 					 ?>
 					 </td>
-					<td>
-						<?php
-							if(isset($_COOKIE['uid'])) {
-								echo "<a href = \"javascript:;\" onclick = \"del('$fname[$i]',$i);\">删除</a>";
-							}
-						?>
-					</td>
 				</tr>
 				<?php } ?>
 			</tbody>

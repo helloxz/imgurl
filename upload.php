@@ -3,22 +3,22 @@
 	include_once('./config.php');
 	require_once( 'sdk/Medoo.php' );
 	
-	use Medoo\Medoo;
-	$database = new medoo([
-	    'database_type' => 'sqlite',
-	    'database_file' => 'data/imgurl.db3'
-	]);
-
 	//用户IP
 	$ip = $_SERVER["REMOTE_ADDR"]; 
 	//获取当前时间
-	$thetime = date('Y-m-d H:i:s',time());
+	$thetime = date('Y-m-d',time());
 	//获取浏览器信息
 	$ua = $_SERVER['HTTP_USER_AGENT'];
 	
 
 	//验证用户，并设置上传目录
 	$dir = check($_COOKIE['uid'],$config['username'],$config['password'],$config['userdir'],$config['admindir']);
+	if($dir == $config['userdir']) {
+		$theuser = 'user';
+	}
+	if($dir == $config['admindir']) {
+		$theuser = 'admin';
+	}
 	
 	$img_name = $_FILES["file"]["name"];	//文件名称
 	$suffix = substr(strrchr($img_name, '.'), 1);//文件后缀
@@ -95,15 +95,21 @@
 	    else {
 		    //如果上传成功
 		    if(move_uploaded_file($img_tmp,$dir_name)){
-			   	//压缩图片
-			    //tinypng($config['tinypng'],$dir_name);
 			    $img_url = $config['domain'].$dir_name;		//自定义图片路径
 			    $img_info = getimagesize($dir_name);
 			    $img_width = $img_info['0'];	//图片宽度
 			    $img_height = $img_info['1'];	//图片高度
 			    $re_data = array("linkurl" => $img_url,width => $img_width,"height" => $img_height,"status" => 'ok');
-			    $last_id = $database->insert("uploads",["dir" => $dir_name,"date" => $thetime,"ip" => $ip,"method" => $ua]);
-
+			    //查询图片是否存在
+			    $isdir = $database->count("uploads",["dir" => $dir_name]);
+			    //var_dump( $database->log());
+			    //如果图片存在
+			    if($isdir >= 1) {
+				    echo json_encode($re_data);
+				    exit;
+			    }
+			    //图片不存在继续执行
+			    $last_id = $database->insert("uploads",["dir" => $dir_name,"date" => $thetime,"ip" => $ip,"method" => $ua,"user" => $theuser]);
 			    //写入成功
 			    if($last_id) {
 				    //返回json格式

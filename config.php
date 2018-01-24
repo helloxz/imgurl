@@ -1,4 +1,11 @@
 <?php
+	require_once( 'sdk/Medoo.php' );
+	use Medoo\Medoo;
+	$database = new medoo([
+	    'database_type' => 'sqlite',
+	    'database_file' => 'data/imgurl.db3'
+	]);
+	
 	$config = array(
 		'domain' 	=> 'http://localhost/imgurl/',			//网站域名
 		'watermark' => 'false',		//文字水印

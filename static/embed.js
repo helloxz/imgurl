@@ -21,6 +21,7 @@ $(document).ready(function()
 		var tinypng = $("#tinypng").html();			//压缩状态
 		$("#loading").hide();
 		$("#relink").show();
+		//console.log(data);
 	    var imginfo = new Function("return" + data)();
 	    document.getElementById("linkurl").value = imginfo.linkurl;
 		document.getElementById("htmlurl").value = "<img src = '" + imginfo.linkurl + "' />";
@@ -79,3 +80,4 @@ function compression(imgurl) {
 		return true;
 	});
 }
+

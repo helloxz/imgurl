@@ -3,7 +3,7 @@
 	//载入配置
 	include_once('./config.php');
 	//载入header
-	include_once('./header.php');
+	include_once('tpl/header.php');
 	//权限判断
 	$id = md5($config['username'].$config['password']);
 	$uid = $_COOKIE['uid'];
@@ -98,5 +98,5 @@
 
 <?php
 	//载入页脚
-	include_once('./footer.php');
+	include_once('tpl/footer.php');
 ?>
