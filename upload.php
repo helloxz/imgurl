@@ -6,7 +6,7 @@
 	//用户IP
 	$ip = $_SERVER["REMOTE_ADDR"]; 
 	//获取当前时间
-	$thetime = date('Y-m-d',time());
+	$thetime = date('Ymd',time());
 	//获取浏览器信息
 	$ua = $_SERVER['HTTP_USER_AGENT'];
 	

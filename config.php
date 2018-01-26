@@ -1,9 +1,12 @@
 <?php
+	$App = getcwd();
+	$App = str_replace('admin','',$App);
 	require_once( 'sdk/Medoo.php' );
 	use Medoo\Medoo;
+	//echo $App;
 	$database = new medoo([
 	    'database_type' => 'sqlite',
-	    'database_file' => 'data/imgurl.db3'
+	    'database_file' => $App.'/data/imgurl.db3'
 	]);
 	
 	$config = array(

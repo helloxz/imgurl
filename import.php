@@ -6,7 +6,7 @@
 	$month = $_GET['month'];
 	$date = $year.$month;
 	$user = $_GET['user'];
-	$thedate = '20'.$year.'-'.$month.'-01';
+	$thedate = '20'.$year.$month.'01';
 	//echo $thedate;
 	
 
