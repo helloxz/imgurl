@@ -54,7 +54,7 @@
 										include_once('./config.php');
 										$mydir = $config['admindir'];
 										echo "<li><a href='./recycle.php'>回收站</a></li>";
-										echo "<li><a href='./explore.php?dir=$mydir'>管理员</a></li>";
+										echo "<li><a href='./admin/'>管理员</a></li>";
 										echo "<li><a href='./functions.php?type=logout'>退出</a></li>";
 									}
 									else {

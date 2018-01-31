@@ -30,24 +30,22 @@
 				<div class="layui-col-lg10 layui-col-md-offset1">
 					<div style = "float: left;">
 						<ul class="layui-nav" lay-filter="">
-						  <li class="layui-nav-item"><a href="">首页</a></li>
-						  <li class="layui-nav-item"><a href="">探索发现</a></li>
-						  <li class="layui-nav-item"><a href="">捐赠版</a></li>
-						  <li class="layui-nav-item"><a href="">帮助文档</a></li>
-						  <li class="layui-nav-item"><a href="">关于</a></li>
+						  <li class="layui-nav-item"><a href="../index.php">首页</a></li>
+						  <li class="layui-nav-item"><a href="../found.php">探索发现</a></li>
+						  <li class="layui-nav-item"><a href="../pro.php">捐赠版</a></li>
+						  <li class="layui-nav-item"><a href="https://wiki.xiaoz.me/docs/imgurl/">帮助文档</a></li>
+						  <li class="layui-nav-item"><a href="../about.php">关于</a></li>
 						</ul>
 					</div>
 					<div style = "float: right;">
 						<ul class="layui-nav">
 						  <li class="layui-nav-item">
-						    <a href="">回收站<span class="layui-badge">9</span></a>
+						    <a href="../recycle.php">回收站<span class="layui-badge">9</span></a>
 						  </li>
 						  <li class="layui-nav-item">
 						    <a href="">后台管理</a>
 						    <dl class="layui-nav-child">
-						      <dd><a href="javascript:;">修改信息</a></dd>
-						      <dd><a href="javascript:;">安全管理</a></dd>
-						      <dd><a href="javascript:;">退出</a></dd>
+						      <dd><a href="../functions.php?type=logout">退出</a></dd>
 						    </dl>
 						  </li>
 						</ul>

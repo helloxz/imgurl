@@ -4,26 +4,7 @@
 <!--内容区域-->
 <div class="layui-col-lg9" id = "showpic">
 	<table class = "layui-table">
-		<tbody>
-		    <tr>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		    </tr>
-		    <tr>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		    </tr>
-		    <tr>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		      <td>人生就像是一场修行</td>
-		    </tr>
-		  </tbody>
+		
 	</table>
 </div>
 <!--内容区域END-->
