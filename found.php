@@ -6,8 +6,8 @@
 	include_once('tpl/header.php');
 	
 	//获取当前时间
-	$thetime = date('Y-m',time());
-	$query = "SELECT `id`,`dir` FROM `uploads` WHERE (`date` LIKE '%2018-01%') AND 'user' = 'user' ORDER BY random() LIMIT 10";
+	$thetime = date('Ym',time());
+	$query = "SELECT `id`,`dir` FROM `uploads` WHERE (`date` LIKE '%$thetime%') AND 'user' = 'user' ORDER BY random() LIMIT 10";
 	$datas = $database->query($query)->fetchAll();
 	//print_r($datas);
 	//var_dump($datas);
