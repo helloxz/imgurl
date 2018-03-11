@@ -69,7 +69,7 @@
 					    </tbody>
 					  </table>
 					  <div id = "img-box">
-						  <a href="" id = "img-url" target = "_blank"><img id = "show_img" src="" alt="" class = "img-responsive center-block img-thumbnail" width = "100%;" height = "100%;"></a>
+						  <a href="" id = "img-url" target = "_blank"><img id = "show_img" src="" alt="" class = "img-responsive center-block img-thumbnail"></a>
 					  </div>
 					</div>
 				<!--显示-->
