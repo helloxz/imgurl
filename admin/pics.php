@@ -30,10 +30,10 @@
 			<?php for($i = 0;$i < 12;$i++){ 
 				$imgurl = $config['domain'].$listpic[$i]['dir'];
 			?>
-			<tr>
+			<tr id = "row<?php echo $listpic[$i]['id']; ?>">
 				<td><a href="javascript:;" onclick = "showimg('<?php echo $imgurl ?>');"><?php echo $listpic[$i]['dir']; ?></a></td>
 				<td><a href="javascript:;"><?php echo $listpic[$i]['date']; ?></td>
-				<td><a href="javascript:;" class = "layui-btn layui-btn-danger layui-btn-xs" onclick = "delimg();">删除</a></td>
+				<td><a href="javascript:;" class = "layui-btn layui-btn-danger layui-btn-xs" onclick = "delimg(<?php echo $listpic[$i]['id']; ?>);">删除</a></td>
 			</tr>
 			<?php } ?>
 		</tbody>
@@ -56,17 +56,22 @@
 	}); 
 	}
 	//删除图片
-	function delimg(){
-		layer.confirm('纳尼？', {
-		  btn: ['按钮一', '按钮二', '按钮三'] //可以无限个按钮
-		  ,btn3: function(index, layero){
-		    //按钮【按钮三】的回调
-		  }
-		}, function(index, layero){
-		  //按钮【按钮一】的回调
-		}, function(index){
-		  //按钮【按钮二】的回调
-		});
+	function delimg(id){
+		var msg = "确认删除？";
+		var id = id;
+		if (confirm(msg)==true){ 
+			$.get("../api/delete.php?id="+id,function(data,status){
+				//删除成功
+				if(data == 'ok') {
+					$("#row"+id).remove();
+				}
+				else{
+					alert(data);		//删除失败，弹出报错
+				}
+			});
+		}else{ 
+			return false; 
+		}
 	}
 	
 </script>
