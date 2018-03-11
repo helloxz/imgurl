@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="../static/admin.css">
 	<script src = "../static/layui/layui.js"></script>
 	<script src = "../static/admin.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 	<!--导航栏-->
