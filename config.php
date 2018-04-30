@@ -20,7 +20,7 @@
         "option"    =>  false,
         "key"       =>  array(
         	"xxx",				//TinyPNG API KEY，支持填写多行key
-        	"xxx-",				//如果只有一个key，请删除此行
+        	"xxx"				//如果只有一个key，请删除此行
         )
     );
     //ModerateContent 图片鉴黄，请参考帮助文档：https://doc.xiaoz.me/docs/imgurl/imgurl-jh
