@@ -44,6 +44,8 @@ location ~* \.(db3)$ {
 * QQ:337003006
 
 ### 鸣谢
-* LayUI:[https://github.com/sentsin/layui](https://github.com/sentsin/layui)
-* class.upload.php:[https://github.com/verot/class.upload.php](https://github.com/verot/class.upload.php)
-* clipBoard.js:[https://github.com/baixuexiyang/clipBoard.js](https://github.com/baixuexiyang/clipBoard.js)
+ImgURL的诞生离不开以下开源项目。
+
+* LayUI: [https://github.com/sentsin/layui](https://github.com/sentsin/layui)
+* class.upload.php: [https://github.com/verot/class.upload.php](https://github.com/verot/class.upload.php)
+* clipBoard.js: [https://github.com/baixuexiyang/clipBoard.js](https://github.com/baixuexiyang/clipBoard.js)
