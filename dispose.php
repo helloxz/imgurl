@@ -46,7 +46,9 @@
     $level  = $info['level'];
     //获取文件后缀名
     $suffix =  substr(strrchr($info['path'], '.'), 1);
-    if(($suffix == 'png') || ($suffix == 'jpg')) {
+    //后缀变为小写
+    $suffix = strtolower($suffix);
+    if(($suffix == 'png') || ($suffix == 'jpg') || ($suffix == 'jpeg')) {
         $iscompress = 1;
     }
     

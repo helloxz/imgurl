@@ -56,7 +56,9 @@
     $level  = $info['level'];
     //获取文件后缀名
     $suffix =  substr(strrchr($info['path'], '.'), 1);
-    if(($suffix == 'png') || ($suffix == 'jpg')) {
+    //后缀改为小写
+    $suffix = strtolower($suffix);
+    if(($suffix == 'png') || ($suffix == 'jpg') || ($suffix == 'jpeg')) {
         $iscompress = 1;
     }
     if($iscompress == 0){
@@ -75,7 +77,7 @@
         \Tinify\setKey($tinykey);
         $source = \Tinify\fromUrl($imgurl);
         //覆盖原有图片
-        $source->toFile($info['path']);
+        $source->toFile(APP.$info['path']);
         //更新数据库
         $database->update("imginfo",[
             "compress"  =>  1
