@@ -1,11 +1,6 @@
 # ImgURL
 ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发，不需要复杂的配置，做到开箱即用。
 
-### 待修复BUG
-* 无法压缩`.jpeg`图片
-* 统一将文件后缀改为小写
-* 后台压缩功能存在BUG，压缩无效。
-
 ### 环境要求
 * PHP >= 5.6
 * 需要exif函数支持
@@ -15,6 +10,7 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发，不
 - [x] 图片上传与预览
 - [x] 一键生成链接
 - [x] 浏览与删除图片
+- [x] 限制访客上传数量
 - [x] 图片压缩
 - [x] 图片鉴黄
 - [ ] 图片水印
@@ -23,7 +19,7 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发，不
 ### 安装
 * 访问：<a href = "https://github.com/helloxz/imgurl/archive/master.zip" target = "_blank" rel = "nofollow">master.zip</a>下载最新版ImgURL程序，放到您的站点根目录并解压。
 * 访问`http(s)://domain.com/check.php`获取配置信息，并记录下来。
-* 修改`config.php`设置你自己的域名和密码，访问http(s)://domain.com/ 即可，就是这么简单。
+* 修改`config.php`设置你自己的域名和密码，访问 `http(s)://domain.com/` 即可，就是这么简单。
 * 更多设置请参考帮助文档：[https://doc.xiaoz.me/docs/imgurl](https://doc.xiaoz.me/docs/imgurl)
 
 
@@ -46,3 +42,8 @@ location ~* \.(db3)$ {
 ### 联系我
 * Blog：[https://www.xiaoz.me/](https://www.xiaoz.me/)
 * QQ:337003006
+
+### 鸣谢
+* LayUI:[https://github.com/sentsin/layui](https://github.com/sentsin/layui)
+* class.upload.php:[https://github.com/verot/class.upload.php](https://github.com/verot/class.upload.php)
+* clipBoard.js:[https://github.com/baixuexiyang/clipBoard.js](https://github.com/baixuexiyang/clipBoard.js)
