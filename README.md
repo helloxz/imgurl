@@ -38,14 +38,13 @@ location ~* \.(db3)$ {
 
 ![](https://imgurl.org/upload/1804/3ccc55eeb47965c3.png)
 
-
-### 联系我
-* Blog：[https://www.xiaoz.me/](https://www.xiaoz.me/)
-* QQ:337003006
-
 ### 鸣谢
 ImgURL的诞生离不开以下开源项目。
 
 * LayUI: [https://github.com/sentsin/layui](https://github.com/sentsin/layui)
 * class.upload.php: [https://github.com/verot/class.upload.php](https://github.com/verot/class.upload.php)
 * clipBoard.js: [https://github.com/baixuexiyang/clipBoard.js](https://github.com/baixuexiyang/clipBoard.js)
+
+### 联系我
+* Blog：[https://www.xiaoz.me/](https://www.xiaoz.me/)
+* QQ:337003006

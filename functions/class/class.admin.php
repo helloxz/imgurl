@@ -31,13 +31,15 @@
 
             //分页计算
             $start = ($page - 1) * 12;
-            $end = $page * 12;
+            //$end = $page * 12;
 
             if(($page == '') || (!isset($page))) {
                 $page = 1;
             }
             
-            
+            //要查询的条数
+            $num = 12;
+
             //判断类型
             switch ($type) {
                 case 'user':
@@ -45,17 +47,17 @@
                     $datas = $database->select("imginfo", "*", [
                         "dir" => $config['userdir'],
                         "ORDER" => ["id" => "DESC"],
-	                    "LIMIT" => [$start,$end]
+	                    "LIMIT" => [$start,$num]
                     ]);
-                    //var_dump( $database->log() );
-                    //exit;
+                    // var_dump( $database->log() );
+                    // exit;
                     return $datas;  
                     break;
                 case 'admin':
                     $datas = $database->select("imginfo", "*", [
                         "dir" => $config['admindir'],
                         "ORDER" => ["id" => "DESC"],
-                        "LIMIT" => [$start,$end]
+                        "LIMIT" => [$start,$num]
                     ]);
                     return $datas;
                     break; 
@@ -63,7 +65,7 @@
                     $datas = $database->select("imginfo", "*", [
                         "level" => 3,
                         "ORDER" => ["id" => "DESC"],
-                        "LIMIT" => [$start,$end]
+                        "LIMIT" => [$start,$num]
                     ]);
                     return $datas;
                     break; 
