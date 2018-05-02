@@ -17,7 +17,12 @@
                     <dd><a href="senioradmin.php?type=dubious&page=1">可疑图片</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="javascript:;">系统设置</a></li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">系统设置<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" onclick = "about()">关于</a></dd>
+                    </dl>
+                </li>
                 <span class="layui-nav-bar" style="top: 157.5px; height: 0px; opacity: 0;"></span></ul>
             </div>
             <!-- 左边导航栏END -->

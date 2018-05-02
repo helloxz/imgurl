@@ -184,3 +184,15 @@ function ipquery(ip){
         }
     });
 }
+
+//关于
+function about(){
+    url = window.location.protocol + '//';
+    url = url + window.location.host + '/';
+    layer.open({
+        title: '关于',
+        type: 2, 
+        area: ['240px', '100px'],
+        content: "./about.php"
+    });
+}
