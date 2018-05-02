@@ -1,3 +1,7 @@
+//layui 根目录配置
+layui.config({
+  base: '/static/layui/',
+})
 //载入layui组建
 layui.use(['layer', 'form','element','upload','flow'], function(){
     var form = layui.form;
