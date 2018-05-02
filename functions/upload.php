@@ -36,17 +36,6 @@
         //上传路径：目录 + 时间
         $handle->process('../'.$updir.'/'.$current_time."/");
         if ($handle->processed) {
-            //图片添加水印
-            // if(($handle->image_dst_x >= 400) && ($handle->image_dst_y >= 400) && ($config['watermark'] != '')){
-            //     $handle->image_text = 'dsdsdds';
-            //     $handle->image_text_color = '#979797';
-            //     $handle->image_text_opacity = 50;
-            //     $handle->image_text_font = './Arial Monospaced.ttf';
-            //     $handle->image_text_size = 16;
-            //     $handle->image_text_x = 5;
-            //     $handle->image_text_y = 5;
-
-            // }
             //获取站点域名
             $domain = $config['domain'];
             //生成文件hash
@@ -95,7 +84,12 @@
             echo $redata = json_encode($redata);
             $handle->clean();
         } else {
-            echo 'error : ' . $handle->error;
+            //上传出现错误，返回报错信息
+            $redata = array(
+                "code"  =>  0,
+                "msg"   =>  $handle->error
+            );
+            echo json_encode($redata);
         }
     }
 ?>
