@@ -81,7 +81,7 @@
                             <?php }else{ ?>
                             <a href="javascript:;" class="layui-btn layui-btn-xs layui-btn-normal" onclick = "compress(<?php echo $id; ?>)">压缩</a>
                             <?php } ?>
-                            <a href="javascript:;" class="layui-btn layui-btn-xs layui-btn-normal" onclick = "copyurl('<?php echo $imgurl; ?>')">复制</a>
+                            <!-- <a href="javascript:;" class="layui-btn layui-btn-xs layui-btn-normal" onclick = "copyurl('<?php echo $imgurl; ?>')">复制</a> -->
                             <a href="javascript:;" class="layui-btn layui-btn-xs layui-btn-danger" onclick = "deleteimg(<?php echo $id; ?>)">删除</a>
                         </td>
                    </tr>
