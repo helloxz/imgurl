@@ -16,7 +16,7 @@
     }
 
     //获取上传者信息
-    $ip = $_SERVER['REMOTE_ADDR'];
+    $ip = $basis->getip();
     $ua = $_SERVER['HTTP_USER_AGENT'];
     $date = date('Y-m-d',time());
     //载入上传类

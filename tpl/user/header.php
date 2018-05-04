@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="favicon.ico"  type="image/x-icon" />
 	<link rel="Bookmark" href="favicon.ico" />
     <link rel="stylesheet" href="./static/layui/css/layui.css">
-    <link rel="stylesheet" href="./static/style.css?v=1.0">
+    <link rel="stylesheet" href="./static/style.css?v=1.1">
     <script src = "https://libs.xiaoz.top/clipBoard.js/clipBoard.min.js"></script>
 </head>
 <body>
@@ -26,6 +26,7 @@
                         <ul class="layui-nav menu" lay-filter="">
                             <li class="layui-nav-item"><a href="./"><i class="layui-icon">&#xe68e;</i> 首页</a></li>
                             <li class="layui-nav-item"><a href="found.php"><i class="layui-icon">&#xe60d;</i> 探索发现</a></li>
+                            <li class="layui-nav-item"><a href="sm.php"><i class="layui-icon">&#xe681;</i> SM.MS</a></li>
                             <li class="layui-nav-item"><a href="https://doc.xiaoz.me/docs/imgurl" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe705;</i> 帮助文档</a></li>
                             <li class="layui-nav-item"><a href="https://github.com/helloxz/imgurl" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe857;</i> 源码</a></li>
                             <li class="layui-nav-item"><a href="about.php"><i class="layui-icon">&#xe60b;</i> 关于</a></li>

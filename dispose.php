@@ -1,4 +1,5 @@
 <?php
+    error_reporting(E_ALL^E_NOTICE^E_WARNING^E_DEPRECATED);
     //载入配置文件
     include_once("./config.php");
     //载入TinyPNG
@@ -88,7 +89,6 @@
         $database->update("imginfo",["level" =>  $level],["id"   => $id]);
         $dispose['level'] = $level;
     }
-
     //返回json数据
     $dispose['code'] = 1;
     $dispose = json_encode($dispose);

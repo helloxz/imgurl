@@ -155,6 +155,59 @@
                 
             }
         }
+        //查询SM.MS图片
+        //查询图片
+        function querysm($page){
+            $config = $this->config;
+            $database = $this->database;
+
+            //分页计算
+            $start = ($page - 1) * 12;
+            //$end = $page * 12;
+
+            if(($page == '') || (!isset($page))) {
+                $page = 1;
+            }
+            
+            //要查询的条数
+            $num = 12;
+
+            //判断类型
+            $datas = $database->select("sm", "*", [
+                "ORDER" => ["id" => "DESC"],
+                "LIMIT" => [$start,$num]
+            ]);
+            return $datas;
+        }
+        //删除SM.MS图片
+        function deletesm($id){
+            $config = $this->config;
+            $database = $this->database;
+            //先查询数据库
+            $query = $database->get("sm","*",[
+                "id"    =>  $id
+            ]);
+            $delete = $database->delete("sm", [
+                "AND" => [
+                    "id" => $id
+                ]
+            ]);
+            //请求接口删除图片
+            $curl = curl_init($query['delete']);
+
+            curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36");
+            curl_setopt($curl, CURLOPT_FAILONERROR, true);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+            #设置超时时间，最小为1s（可选）
+            curl_setopt($curl , CURLOPT_TIMEOUT, 2);
+
+            $html = curl_exec($curl);
+            curl_close($curl);
+            echo 'ok';
+        }
     }
 
     $pic = new Admin($config,$database);

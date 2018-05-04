@@ -6,11 +6,13 @@
 <div class="layui-container">
     <div class="layui-row">
         <div class="layui-col-lg12 layui-col-xs10">
-        <div class="msg"><i class="layui-icon">&#xe645;</i>  注意：您上传的图片将会公开显示，勿上传隐私图片。游客限制每天5张，最大支持2M</div>
+        <div class="msg"><i class="layui-icon">&#xe645;</i>  该功能可以将图片上传至SM.MS图床。</div>
             <!-- 上传图片表单 -->
-            <div class="layui-upload-drag" id="upimg">
-                <i class="layui-icon">&#xe67c;</i>
-                <p>点击上传，或将图片拖拽到此处</p>
+            <div class = "smfile">
+	            <a href="javascript:;" class="file">
+				    <input type="file" name="smfile" id="sm">
+					<i class="layui-icon" style = "font-size:6em;">&#xe67c;</i>
+				</a>
             </div>
             <!-- 上传图片表单END -->
         </div>
@@ -59,3 +61,8 @@
 <?php
     include_once("./tpl/user/footer.php");
 ?>
+<script>
+	$(document).ready(function(){
+		$("#smfile input:text").attr("name",'smfile');
+	});
+</script>

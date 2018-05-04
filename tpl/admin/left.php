@@ -18,6 +18,13 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">SM.MS管理<span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                    <dd><a href="smadmin.php?type=preview&page=1">预览模式</a></dd>
+                    <dd><a href="smadmin.php?type=admin&page=1">管理模式</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">系统设置<span class="layui-nav-more"></span></a>
                     <dl class="layui-nav-child">
                     <dd><a href="javascript:;" onclick = "about()">关于</a></dd>
