@@ -16,6 +16,12 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发，不
 - [ ] 图片水印
 - [ ] API上传
 
+### 更新日志
+#### v1.1 - 2018.05.04
+* 可上传至SM.MS图床
+* 优化IP获取，及其它细节优化
+* 修复一些BUG
+
 ### 安装
 * 访问：<a href = "https://github.com/helloxz/imgurl/archive/master.zip" target = "_blank" rel = "nofollow">master.zip</a>下载最新版ImgURL程序，放到您的站点根目录并解压。
 * 访问`http(s)://domain.com/check.php`获取配置信息，并记录下来。
