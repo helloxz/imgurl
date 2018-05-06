@@ -9,10 +9,13 @@ layui.use(['layer', 'form','element','upload','flow'], function(){
     var element = layui.element;
     var upload = layui.upload;
     var flow = layui.flow;
-    //当你执行这样一个方法时，即对页面中的全部带有lay-src的img元素开启了懒加载（当然你也可以指定相关img）
-    // flow.lazyimg({
-    //     elem:'#found-img img'
-    // }); 
+    //图片懒加载
+ 	flow.lazyimg({
+    	elem:'#found-img img'
+ 	}); 
+ 	flow.lazyimg({
+    	elem:'#adminpic img'
+ 	});
 
     //首页拖拽上传
     upload.render({
