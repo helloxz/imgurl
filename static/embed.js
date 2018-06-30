@@ -15,7 +15,16 @@ layui.use(['layer', 'form','element','upload','flow'], function(){
  	}); 
  	flow.lazyimg({
     	elem:'#adminpic img'
- 	});
+     });
+     //图片查看器
+    layer.photos({
+        photos: '#adminpic'
+        ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+    }); 
+    layer.photos({
+        photos: '#found-img'
+        ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+    }); 
 
     //首页拖拽上传
     upload.render({
@@ -51,6 +60,17 @@ layui.use(['layer', 'form','element','upload','flow'], function(){
                             title: '温馨提示'
                             ,content: '请勿上传违规图片！'
                         }); 
+                    }
+                    if(obj.level == null){
+	                    $.get("./dispose.php?id="+res.id,function(data,status){
+		                    var obj = eval('(' + data + ')');
+		                    if(obj.level == 3){
+		                        layer.open({
+		                            title: '温馨提示'
+		                            ,content: '请勿上传违规图片！'
+		                        }); 
+		                    }
+	                    });
                     }
                 });
             }
@@ -302,4 +322,37 @@ function about(){
         area: ['240px', '100px'],
         content: "./about.php"
     });
+}
+
+//删除本页所有照片
+function delall(){
+    layer.confirm('确认删除本页所有图片？', {icon: 3, title:'提示'}, function(index){
+        //do something
+        
+        layer.close(index);
+    });
+}
+
+//预览图片
+function previewimg(id,url){
+    var imgid = "img" + id;
+    var upid = id - 1;
+	
+	var dnid = id + 1;
+	
+	$("#show" + upid).hide();
+    $("#show" + dnid).hide();
+    
+    $("#img" + id).attr('src',url);
+    $("#show" + id).show();
+    
+}
+//隐藏图片
+function hideimg(id){
+	var upid = id - 1;
+	
+	var dnid = id + 1;
+	$("#show" + id).hide();
+	$("#show" + upid).hide();
+	$("#show" + dnid).hide();
 }

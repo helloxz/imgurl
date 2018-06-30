@@ -159,3 +159,15 @@
     color:#009688;
     text-decoration: none;
 }
+.showimg{
+	display:none;
+	position:absolute;
+	max-width:460px;
+	top:3em;
+	z-index:99;
+	border:1px solid #e2e2e2;
+	border-radius:5px;
+}
+.layui-table img {
+    max-width: 460px;
+}
