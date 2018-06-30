@@ -67,8 +67,12 @@
                     }
                 ?>
                    <tr id = "imgid<?php echo $id; ?>">
-                        <td><?php echo $id; ?></td>
-                        <td><a id = "imgid<?php echo $id; ?>" href="javascript:;" onclick = "adminshow('<?php echo $imgurl ?>',<?php echo $id; ?>)"><?php echo $img['path']; ?></a></td>
+                        <td><a href="javascript:;" onclick = "copyurl('<?php echo $imgurl; ?>')"><?php echo $id; ?></a></td>
+                        <td>
+                            <a id = "imgid<?php echo $id; ?>" href="javascript:;" onclick = "adminshow('<?php echo $imgurl ?>',<?php echo $id; ?>)">
+                                <?php echo $img['path']; ?>
+                            </a>
+                        </td>
                         <td><a href="javascript:;" onclick = "ipquery('<?php echo $img['ip']; ?>')"><?php echo $img['ip']; ?></a></td>
                         <td><?php echo $img['date']; ?></td>
                         <td>

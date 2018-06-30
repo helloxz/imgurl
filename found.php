@@ -24,7 +24,8 @@
                     $imgid = $img['id'];
             ?>
             <div class="layui-col-lg4">
-                <a href="javascript:;" onclick = "userpreview('<?php echo $imgurl ?>',<?php echo $imgid; ?>)"><img src="<?php echo $imgurl ?>"></a>
+                <!-- <a href="javascript:;" onclick = "userpreview('<?php echo $imgurl ?>',<?php echo $imgid; ?>)"></a> -->
+                <img lay-src="<?php echo $imgurl ?>" layer-src="<?php echo $imgurl ?>">
             </div>
             <?php } ?>
         </div>

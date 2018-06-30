@@ -34,7 +34,7 @@
             <?php foreach ($imgs as $img) {
             ?>
             <div class="layui-col-lg4 picadmin">
-                <a id = "imgid<?php echo $img['id']; ?>" href="javascript:;" onclick = "smshow('<?php echo $img['url'] ?>',<?php echo $img['id']; ?>)"><img src="<?php echo $img['url'] ?>"></a>
+                <img lay-src="<?php echo $img['url']; ?>" layer-src="<?php echo $img['url']; ?>" alt="ID: <?php echo $img['id']; ?>" />
             </div>
             <?php } ?>
             </div>

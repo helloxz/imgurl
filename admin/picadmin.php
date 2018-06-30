@@ -32,7 +32,8 @@
                 $id = $img['id'];
             ?>
             <div class="layui-col-lg4 picadmin">
-                <a id = "imgid<?php echo $id; ?>" href="javascript:;" onclick = "adminshow('<?php echo $imgurl ?>',<?php echo $id; ?>)"><img src="<?php echo $imgurl; ?>"></a>
+                <!-- <a id = "imgid<?php echo $id; ?>" href="javascript:;" onclick = "adminshow('<?php echo $imgurl ?>',<?php echo $id; ?>)"></a> -->
+                <img lay-src="<?php echo $imgurl; ?>" layer-src="<?php echo $imgurl; ?>" alt="图片ID: <?php echo $id; ?>">
             </div>
             <?php } ?>
         </div>
@@ -41,6 +42,7 @@
             <div class="page">
                 <a href="?type=<?php echo $type; ?>&page=<?php echo $up; ?>" class="layui-btn">上一页</a>
                 <a href="?type=<?php echo $type; ?>&page=<?php echo $down; ?>" class="layui-btn">下一页</a>
+                <!-- <a href="javascript:;" onclick = "delall()" class="layui-btn layui-btn-danger">删除本页</a> -->
             </div>
         </div>
         <!-- 翻页按钮END -->
