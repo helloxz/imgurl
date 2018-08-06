@@ -35,7 +35,13 @@
     margin-left:auto;
     margin-right:auto;
     margin-top:2em;
-    width:94.6%;
+    /*width:94.6%;*/
+    width:100%;
+     -moz-box-sizing: border-box; /*Firefox3.5+*/
+	-webkit-box-sizing: border-box; /*Safari3.2+*/
+	-o-box-sizing: border-box; /*Opera9.6*/
+	-ms-box-sizing: border-box; /*IE8*/
+	box-sizing: border-box; 
     left:0%;
     background-color:#F9F9F9;
 }

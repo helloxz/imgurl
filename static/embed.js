@@ -356,3 +356,10 @@ function hideimg(id){
 	$("#show" + upid).hide();
 	$("#show" + dnid).hide();
 }
+
+//Ctrl + V上传图片
+//$(document).keyup(function(){
+//    if(event.keyCode == 86){
+        
+//    }
+//});
