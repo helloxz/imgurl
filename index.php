@@ -5,7 +5,7 @@
 
 <div class="layui-container">
     <div class="layui-row">
-        <div class="layui-col-lg12 layui-col-xs10">
+        <div class="layui-col-lg12 layui-col-xs12">
         <div class="msg"><i class="layui-icon">&#xe645;</i>  注意：您上传的图片将会公开显示，勿上传隐私图片。游客限制每天5张，最大支持2M</div>
             <!-- 上传图片表单 -->
             <div class="layui-upload-drag" id="upimg">
