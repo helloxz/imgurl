@@ -149,6 +149,26 @@ function copyurl(url){
     }); 
 }
 
+//复制链接
+function newcopy(info){
+    var copy = new clipBoard(document.getElementById('url'), {
+        beforeCopy: function() {
+            info = $("#" + info).val();
+        },
+        copy: function() {
+            return info;
+        },
+        afterCopy: function() {
+
+        }
+    });
+    layui.use('layer', function(){
+          var layer = layui.layer;
+      
+          layer.msg('复制成功！', {time: 2000})
+    }); 
+}
+
 //用户登录方法
 function login(){
     // 获取用户提交的信息
@@ -176,36 +196,48 @@ function userpreview(imgurl,id){
 
 //后台管理员查看图片
 function adminshow(imgurl,id){
-    var showimg = "<center><img style = 'max-width:100%;max-height:100%;' src = '" + imgurl + "' /></center>";
+    $("#adminshow").show();
+    $("#url").val(imgurl);
+    $("#html").val("<img src = '" + imgurl + "' />");
+    $("#markdown").val("![](" + imgurl + ")");
+    $("#bbcode").val("[img]" + imgurl + "[/img]");
+    
+    $("#copy").show();
+    $("#adminshow img").attr("src",imgurl);
     layui.use('layer', function(){
         var layer = layui.layer;
         layer.open({
             type: 1,
-            title:"图片预览",
-            area: ['80%', '80%'],
-            content: showimg,
-            btn: ['压缩', '删除'],
+            title:false,
+            area: '720px',
+            content: $("#adminshow"),
+            btn: ['删除'],
+            cancel: function(index, layero){ 
+	            $("#adminshow img").attr("src","");
+			  	$("#copy").hide();
+			},
             yes: function(index, layero){
-                layer.msg('该功能还在开发中！', {time: 2000})
-            }
-            //删除按钮
-            ,btn2: function(index, layero){
                 layer.confirm('确认删除？', {icon: 3, title:'温馨提示！'}, function(index){
                     $.get("./delete.php?id="+id,function(data,status){
                         if(data == 'ok') {
+	                        
                             $("#imgid"+id).remove();
+                            $("#adminshow img").attr("src","");
+			  				$("#copy").hide();
                         }
                         else{
                             alert(data);
                         }
                     });
                 
-                layer.close(index);
+                	layer.closeAll();
                 });
             }
       });
   }); 
 }
+
+
 
 //后台管理员查看SM.MS图片
 function smshow(imgurl,id){
@@ -363,3 +395,17 @@ function hideimg(id){
         
 //    }
 //});
+
+//预览图片
+function viewimg(id,imgurl){
+	id = "viewimg" + id;
+	$("#" + id + " img").attr('src',imgurl);
+	//显示图片
+	$("#" + id).show();
+	
+}
+//隐藏图片
+function hideimg(id){
+	id = "viewimg" + id;
+	$("#" + id).hide();
+}
