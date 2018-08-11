@@ -272,7 +272,7 @@
 					}
 					//生成文件名
 					$filenme = $dir.date('Y-m-d H:i:s',time()).$suffix;
-					$filenme = substr(md5($filenme), 8, 16).'.'.$suffix;
+					$filenme = substr(md5($url.$filenme), 8, 16).'.'.$suffix;
 
 					$full = $dir.'/'.$filenme;
 					//写入文件
