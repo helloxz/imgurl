@@ -409,3 +409,39 @@ function hideimg(id){
 	id = "viewimg" + id;
 	$("#" + id).hide();
 }
+
+//URL上传
+function urlup(){
+	layui.use('layer', function(){
+	  	var layer = layui.layer;
+	  	layer.open({
+		  	type:3
+		  	,content: '上传中，请等待...'
+		});
+	}); 
+	arr = $("#arrurl").val();
+	//如果地址为空
+	if(arr == ''){
+		layer.closeAll('loading');
+		layer.msg('地址不能为空！');
+		return false;
+	}
+
+	$.post("../functions/urlup.php",{arr:arr},function(data,status){
+		var re = eval('(' + data + ')');
+		if(re.code == 1){
+			//关闭加载层
+			layer.closeAll('loading');
+			layer.msg(re.msg);
+		}
+		else if(re.code == 0){
+			//关闭加载层
+			layer.closeAll('loading');
+			layer.msg(re.msg);
+		}
+		else{
+			layer.closeAll('loading');
+			layer.msg(re.msg);
+		}
+	});
+}

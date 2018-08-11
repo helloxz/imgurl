@@ -16,6 +16,7 @@
                     <dd><a href="senioradmin.php?type=admin&page=1">管理员上传</a></dd>
                     <dd><a href="smadmin.php?type=admin&page=1">SM.MS</a></dd>
                     <dd><a href="senioradmin.php?type=dubious&page=1">可疑图片</a></dd>
+                    <dd><a href="senioradmin.php?type=unidentification&page=1">未识别图片</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
