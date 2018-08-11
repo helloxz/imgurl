@@ -95,19 +95,15 @@
             //完整的图片路径
             $imgpath = APP.$path;
             //如果图片删除成功，将再次删除数据库
-            
-            if(unlink($imgpath)) {
-                $del = $database->delete("imginfo", [
-                    "AND" => [
-                        "id" => $id
-                    ]
-                ]);
-                echo 'ok';
-            }
-            else{
-                echo '删除失败！';
-            }
-            
+            //删除图片
+            unlink($imgpath);
+            //删除数据库
+            $del = $database->delete("imginfo", [
+                "AND" => [
+                    "id" => $id
+                ]
+            ]);
+            echo 'ok';
         }
         //统计数据
         function data() {
