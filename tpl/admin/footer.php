@@ -13,6 +13,6 @@
 
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 	<script src="../static/layui/layui.js"></script>
-	<script src="../static/embed.js?v=1.2"></script>
+	<script src="../static/embed.js?v=1.21"></script>
 </body>
 </html>

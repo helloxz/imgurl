@@ -71,7 +71,7 @@
                     break;
                 case 'unidentification':
                  	$datas = $database->select("imginfo", "*", [
-                        "level" => '',
+                        "level" => null,
                         "ORDER" => ["id" => "DESC"],
                         "LIMIT" => [$start,$num]
                     ]);

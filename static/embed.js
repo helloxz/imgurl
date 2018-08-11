@@ -322,7 +322,14 @@ function cdubious(id){
 //图片压缩功能
 function compress(id){
     //layer.msg('该功能还在开发中！', {time: 2000})
+    layer.open({
+	  	type:3
+	  	,content: '处理中...'
+	});
     $.get("../functions/class/class.pic.php?id=" + id,function(data,status){
+	    if(status == 'success'){
+		    layer.closeAll('loading');
+	    }
         layer.open({
             title: '温馨提示：',
             time:2000
