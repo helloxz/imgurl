@@ -452,3 +452,20 @@ function urlup(){
 		}
 	});
 }
+
+//时间筛选
+function screen(){
+	var starttime = $("#starttime").val();
+	var endtime = $("#endtime").val();
+
+	if((starttime == '') || (endtime == '')){
+		layui.use('layer', function(){
+	  	var layer = layui.layer;
+	  	layer.msg('请选择时间！');
+	}); 
+	}
+
+	else{
+		window.location.href = "./senioradmin.php?page=1&date=" + starttime + '|' + endtime;
+	}
+}

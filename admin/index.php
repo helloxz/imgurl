@@ -16,14 +16,17 @@
         <!-- 后台内容部分 -->
         <div class="layui-col-lg9">
            <div>
+	       <h2>数据统计</h2>
            <table class="layui-table">
                 <colgroup>
-                    <col width="33%">
-                    <col width="33%">
+                    <col width="25%">
+                    <col width="25%">
+                    <col width="25%">
                     <col>
                 </colgroup>
                 <thead>
                     <tr>
+                    <th>累积上传</th>
                     <th>本月上传数量</th>
                     <th>今日上传</th>
                     <th>可疑图片</th>
@@ -31,6 +34,7 @@
                 </thead>
                 <tbody>
                     <tr>
+	                    <td><?php echo $data['all']; ?></td>
                         <td><?php echo $data['month']; ?></td>
                         <td><?php echo $data['day']; ?></td>
                         <td><?php echo $data['level']; ?></td>

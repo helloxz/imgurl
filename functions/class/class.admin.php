@@ -25,7 +25,15 @@
             } 
         }
         //查询图片
-        function querypic($type,$page){
+        function querypic($type,$page,$date = null){
+	        //对时间进行拆分
+	        if($date != null){
+		        $date = explode("|",$date);
+		        
+		        $starttime = $date[0];
+		        $endttime = $date[1];
+	        }
+	        
             $config = $this->config;
             $database = $this->database;
 
@@ -78,7 +86,10 @@
                     return $datas;
                     break;
                 default:
-                    echo 'dsddsd';
+                    $sql = "SELECT * FROM imginfo WHERE date(date) BETWEEN '$starttime' AND '$endttime' ORDER BY `id` DESC LIMIT $num OFFSET $start";
+                    
+                    $datas = $database->query($sql);
+                    return $datas;
                     break;
             }
         }
@@ -125,12 +136,15 @@
             $level = $this->database->count("imginfo",[
                 "level"  =>  3
             ]);
+            //统计全部图片
+            $all = $this->database->count("imginfo");
             
             //返回数据
             $redata = array(
                 "month" =>  $month,
                 "day"   =>  $day,
-                "level" =>  $level
+                "level" =>  $level,
+                "all"	=>	$all
             );
             return $redata;
         }

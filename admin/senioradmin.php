@@ -8,14 +8,32 @@
     $type = $_GET['type'];
     //获取页数
     $page = $_GET['page'];
+    //获取时间
+    @$date = $_GET['date'];
+    //如果时间不为空
+    if($date != ''){
+	    $thedate = explode("|",$date);
+	    $starttime = $thedate[0];
+	    $endtime = $thedate[1];
+	    //翻页选项
+	    $thepage = '&date='.$date;
+    }
+    else{
+	    $starttime = '';
+	    //获取当前日期
+	    $endtime = date("Y-m-d",time());
+	    //翻页选项
+	    $thepage = '';
+    }
     //查询图片
-    $imgs = $pic->querypic($type,$page);
+    $imgs = $pic->querypic($type,$page,$date);
     
     $up = (int)$page - 1;
     if($up <= 0){
         $up = 1;
     }
     $down = (int)$page +1;
+
 ?>
 
 <div class="layui-container" style = "margin-top:2em;">
@@ -27,6 +45,21 @@
          <!-- 后台内容部分 -->
          <div id = "adminpic">
          <div class="layui-col-lg9">
+	        <!--时间筛选-->
+			<div id="date">
+				<table class="layui-table" lay-skin="nob">
+					<tbody>
+						<tr>
+							<td>按时间筛选：</td>
+							<td><input type="text" class="layui-input" id="starttime" value = "<?php echo $starttime; ?>"></td>
+							<td> - </td>
+							<td><input type="text" class="layui-input" id="endtime" value = "<?php echo $endtime; ?>"></td>
+							<td><button lay-submit class="layui-btn" onclick = "screen()">筛选</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		    <!--时间筛选END-->
             <!-- 表格 -->
             <table class="layui-table">
                 <colgroup>
@@ -100,8 +133,8 @@
         <!-- 翻页按钮 -->
         <div class="layui-col-lg9 layui-col-md-offset3">
             <div class="page">
-                <a href="?type=<?php echo $type; ?>&page=<?php echo $up; ?>" class="layui-btn">上一页</a>
-                <a href="?type=<?php echo $type; ?>&page=<?php echo $down; ?>" class="layui-btn">下一页</a>
+                <a href="?type=<?php echo $type; ?>&page=<?php echo $up.$thepage; ?>" class="layui-btn">上一页</a>
+                <a href="?type=<?php echo $type; ?>&page=<?php echo $down.$thepage; ?>" class="layui-btn">下一页</a>
             </div>
         </div>
         <!-- 翻页按钮END -->
