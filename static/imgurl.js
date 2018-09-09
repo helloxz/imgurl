@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ImgURL上传脚本
 // @namespace    https://imgurl.org/
-// @version      0.1
+// @version      0.2
 // @description  ImgURL快捷上传工具
 // @author       xiaoz.me
 // @match        http://*/*
@@ -26,38 +26,55 @@
 	    var layerleft = (bwidth - 1280) / 2;
 
 	    //改变css
-	    $("#layer").css({"top":layertop,"left":layerleft});
+	    //$("#layer").css({"top":layertop,"left":layerleft});
+	    //原生js改变css
+	    //alert(layertop);
+	    document.getElementById("layer").style.top = layertop + "px";
+	    document.getElementById("layer").style.left = layerleft + "px";
     }
     //创建一个遮罩层
     window.keepout = function(){
 	    var fade = '<div id = "fade" style = "width:100%;height:100%;background:rgba(0, 0, 0, 0.5);position: fixed;left: 0;top: 0;z-index: 99;" onclick = "closelayer()"></div>';
-	    $("body").append(fade);
+	    //$("body").append(fade);
+	    var div = document.createElement("div");
+	    div.innerHTML = fade;
+		document.body.appendChild(div);
     }
 
     //关闭层
     window.closelayer = function(){
-	    $("#layer").hide();
+	    //$("#layer").hide();
+	    document.getElementById("layer").style.display = "none";
 		//showSidebar();
-		$("#layer").remove();
-		$("#fade").remove();
+		//$("#layer").remove();
+		var layer = document.getElementById("layer");
+		layer.parentNode.removeChild(layer);
+		
+		//$("#fade").remove();
+		var fade = document.getElementById("fade");
+		fade.parentNode.removeChild(fade);
     }
 
     //创建一个显示按钮
     function imgurl(){
-	    //var imgButton = layerstart;
-	    //imgButton += '<iframe src = "http://localhost/imgurl/miniup.html" width="100%" height="660px" frameborder="0"></iframe>';
-	    //imgButton += layerend;
-	    //$("body").append();
-	    $("body").append('<div id = "imgbtn" style = "position:fixed;right:1em;bottom:1em;z-index:88;cursor:pointer;" onclick = "showImgurl()"><img src = "https://libs.xiaoz.top/material/image.png" width = "36px" height = "36px" /></div>');
+	    //$("body").append('<div id = "imgbtn" style = "position:fixed;right:1em;bottom:1em;z-index:88;cursor:pointer;" onclick = "showImgurl()"><img src = "https://libs.xiaoz.top/material/image.png" width = "36px" height = "36px" /></div>');
+	    //使用原生js添加按钮
+	    var div = document.createElement("div");
+	    div.innerHTML = '<div id = "imgbtn" style = "position:fixed;right:1em;bottom:1em;z-index:88;cursor:pointer;" onclick = "showImgurl()"><img src = "https://libs.xiaoz.top/material/image.png" width = "36px" height = "36px" /></div>';
+	    document.body.appendChild(div);
     }
     //显示上传按钮
     window.showImgurl = function(){
 	    var up = layerstart;
 	    up += '<iframe src = "https://imgurl.org/miniup.html" width="100%" height="660px" frameborder="0"></iframe>';
 	    up += layerend;
-	    $("body").append(up);
-
-	    $("#layer").show();
+	    //$("body").append(up);
+	    var div = document.createElement("div");
+	    div.innerHTML = up;
+		document.body.appendChild(div);
+		
+	    //$("#layer").show();
+	    document.getElementById("layer").style.display = "block";
 	    
 	    //显示遮罩
 	    keepout();
