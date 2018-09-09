@@ -127,7 +127,22 @@
                 } 
                 return $ip; 
         }
-       
+       	//判断文件MIME类型
+       	function mime($path){
+	       	$mime = mime_content_type($path);
+	       	switch ( $mime )
+	       	{
+	       		case 'image/gif':
+	       		case 'image/png':
+	       		case 'image/jpeg':
+	       		case 'image/bmp':
+	       			return true;
+	       			break;		
+	       		default:
+	       			return false;
+	       			break;
+	       	}
+       	}
     }
 
     //自动初始化完成一些基础操作

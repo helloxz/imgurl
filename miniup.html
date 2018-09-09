@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./static/style.css?v=1.2">
     <script src = "https://libs.xiaoz.top/clipBoard.js/clipBoard.min.js"></script>
     
-    <style type="text/css" media="screen" id="test">
+    <style type="text/css" media="screen">
     	#imgbtn{
 	    	display: none;
     	}
@@ -30,6 +30,7 @@
 		  <ul class="layui-tab-title">
 		    <li class="layui-this">ImgURL</li>
 		    <li>SM.MS</li>
+		    <li>关于</li>
 		  </ul>
 		  <div class="layui-tab-content">
 		  	<!--上传到ImgURL-->
@@ -37,7 +38,7 @@
 			    <!-- 上传图片表单 -->
 	            <div class="layui-upload-drag" id="upimg">
 	                <i class="layui-icon">&#xe67c;</i>
-	                <p>点击上传，或将图片拖拽到此处</p>
+	                <p>将图片拖拽到此处，或将鼠标移动到这里支持Ctrl + V上传</p>
 	            </div>
 	            <!-- 上传图片表单END -->
 		    </div>
@@ -50,6 +51,35 @@
 					</a>
 	            </div>
 		    </div>
+		    <!--捐赠-->
+		    <div class="layui-tab-item">
+			   	<h1>ImgURL</h1>
+			<p>ImgURL是一款简洁、纯粹的图床程序，使用PHP + Sqlite开发，开箱即用。</p>
+			<br /><h2>主要功能</h2><br />
+			<ul>
+				<li>拽拖上传图片、实时预览</li>
+				<li>一键生成链接，一键复制</li>
+				<li>图片管理</li>
+				<li>TinyPNG图片压缩</li>
+				<li>图片智能鉴黄</li>
+			</ul>
+			<br /><h2>使用说明</h2><br />
+            <ul>
+                <li>图片最大上传限制为2M</li>
+                <li>游客每天限制上传10张图片</li>
+                <li>勿上传暴力、色情、反动图片，否则后果自负</li>
+                <li>如果您使用ImgURL代表同意以上协议</li>
+            </ul>
+			<br /><h2>联系我</h2><br />
+			<ul>
+				<li>Blog:<a href = "https://www.xiaoz.me/" target = "_blank">https://www.xiaoz.me/</a></li>
+				<li>QQ:337003006</li>
+			</ul>
+				<br />
+				<p>扫描下方二维码请我喝一杯咖啡</p><br />
+				<p><img src="https://imgurl.org/upload/1712/cb349aa4a1b95997.png" alt=""></p>
+		    </div>
+		    <!--捐赠-->
 		  </div>
 		</div>    
 	    <!--选项卡END-->
@@ -104,8 +134,9 @@
 	<script>
 		//隐藏按钮
 		//setTimeout('$("#imgbtn").remove()',100)
-		layui.use(['element'],function(){
+		layui.use(['element','layer'],function(){
 			var element = layui.element;
+			var layer = layui.layer;
 			element.on('tab(uptab)', function(data){
 			  //console.log(this); //当前Tab标题所在的原始DOM元素
 			  //console.log(data.index); //得到当前Tab的所在下标
@@ -115,22 +146,58 @@
 
 		var load1 = document.querySelector("body");
 
-// 实例化即可
-new ctrlVUtil({
-    uploadUrl: "functions/cvupload.php",
-    targetElement: load1,
-	isCompleteImg:false,
-    data:{
-        name:"alanzhang"
-    },
-    success:function(data){
-        alert("上传成功");
-        console.log(data);
-    },
-	error: function(error){
-		alert("上传失败");
-	}
-});
+		// 实例化即可
+		new ctrlVUtil({
+		    uploadUrl: "functions/cvupload.php",
+		    targetElement: load1,
+			isCompleteImg:false,
+		    data:{
+		        name:"alanzhang",
+		    },
+		    success:function(data){
+		        //转为对象
+		        var res = data;
+		        //上传成功
+		        if(res.code == 1){
+			        layer.closeAll('loading'); 
+	                $("#showpic a").attr('href',res.url);
+	                $("#showpic img").attr('src',res.url);
+	                $("#url").val(res.url);
+	                $("#html").val("<img src = '" + res.url + "' />");
+	                $("#markdown").val("![](" + res.url + ")");
+	                $("#bbcode").val("[img]" + res.url + "[/img]");
+	                $("#upok").show();
+	                //请求接口处理图片
+	                $.get("./dispose.php?id="+res.id,function(data,status){
+	                    var obj = eval('(' + data + ')');
+	                    if(obj.level == 3){
+	                        layer.open({
+	                            title: '温馨提示'
+	                            ,content: '请勿上传违规图片！'
+	                        }); 
+	                    }
+	                    if(obj.level == null){
+		                    $.get("./dispose.php?id="+res.id,function(data,status){
+			                    var obj = eval('(' + data + ')');
+			                    if(obj.level == 3){
+			                        layer.open({
+			                            title: '温馨提示'
+			                            ,content: '请勿上传违规图片！'
+			                        }); 
+			                    }
+		                    });
+	                    }
+	                });
+		        }
+		        else{
+			        layer.msg(res.msg);
+		        }
+		    },
+			error: function(error){
+				layer.closeAll('loading'); 
+				alert("上传失败！");
+			}
+		});
 	</script>
 </body>
 </html>

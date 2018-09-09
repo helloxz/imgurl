@@ -175,6 +175,9 @@
      * @return {[type]}            [description]
      */
     ctrlVUtil.prototype.send = function(imgcontent) {
+	    //自己添加的，显示上传加载
+	    layer.load();
+	    
         var that = this;
 
         that.uploadInput.innerHTML = "";
