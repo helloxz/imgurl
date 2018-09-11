@@ -4,8 +4,8 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;">看图模式<span class="layui-nav-more"></span></a>
                     <dl class="layui-nav-child">
-                    <dd><a href="picadmin.php?type=user&page=1">游客上传</a></dd>
-                    <dd><a href="picadmin.php?type=admin&page=1">管理员上传</a></dd>
+                    <dd><a href="picadmin.php?type=user">游客上传</a></dd>
+                    <dd><a href="picadmin.php?type=admin">管理员上传</a></dd>
                     <dd><a href="smadmin.php?type=preview&page=1">SM.MS</a></dd>
                     </dl>
                 </li>

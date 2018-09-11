@@ -54,7 +54,7 @@
 							<td><input type="text" class="layui-input" id="starttime" value = "<?php echo $starttime; ?>"></td>
 							<td> - </td>
 							<td><input type="text" class="layui-input" id="endtime" value = "<?php echo $endtime; ?>"></td>
-							<td><button lay-submit class="layui-btn" onclick = "screen()">筛选</button></td>
+							<td><button lay-submit class="layui-btn" onclick = "screen('senioradmin.php')">筛选</button></td>
 						</tr>
 					</tbody>
 				</table>

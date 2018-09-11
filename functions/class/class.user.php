@@ -143,6 +143,36 @@
 	       			break;
 	       	}
        	}
+       	//返回错误json
+       	function re_error($msg){
+	       	$arr = array(
+	       		"code"	=>	0,
+	       		"msg"	=>	$msg
+	       	);
+	       	$rejson = json_encode($arr);
+	       	echo $rejson;
+	       	exit;
+       	}
+       	//请求tipng和鉴黄接口
+       	function curlZip($id,$domain){
+	       	//组合为完整的接口
+	       	$apiurl = $domain.'dispose.php?id='.$id;
+	       	//请求接口
+	       	$curl = curl_init($apiurl);
+
+		    curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36");
+		    curl_setopt($curl, CURLOPT_FAILONERROR, true);
+		    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+		    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+		    #设置超时时间，最小为1s（可选）
+		    curl_setopt($curl , CURLOPT_TIMEOUT, 2);
+
+		    @curl_exec($curl);
+		    curl_close($curl);
+		    //var_dump($html);
+       	}
     }
 
     //自动初始化完成一些基础操作

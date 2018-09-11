@@ -454,7 +454,7 @@ function urlup(){
 }
 
 //时间筛选
-function screen(){
+function screen(page){
 	var starttime = $("#starttime").val();
 	var endtime = $("#endtime").val();
 
@@ -466,6 +466,6 @@ function screen(){
 	}
 
 	else{
-		window.location.href = "./senioradmin.php?page=1&date=" + starttime + '|' + endtime;
+		window.location.href = page + "?page=1&date=" + starttime + '|' + endtime;
 	}
 }

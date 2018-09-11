@@ -1,15 +1,22 @@
 <?php
+	/*
+	name:ImgURL上传API
+	version:v1.0
+	author:xiaoz.me
+	update:2018-09-11
+	*/
+	header('Access-Control-Allow-Origin:*');
     //载入配置文件
     include_once("./class/class.user.php");
-    //阻止用户直接访问
-	if( $_SERVER['HTTP_REFERER'] != $config['domain'] )
-	{
-		$basis->re_error('非法请求！');
+
+    @$type = $_GET['type'];
+    $type = strip_tags($type);
+    //如果没有post文件
+	if(!$_FILES['file']){
+		$basis->re_error('未选择文件！');
 	}
-    
     //检查用户是否登录
     $status = $basis->check($config);
-
 
     //检查用户是否登陆来判断上传目录
     if($status == 'islogin') {
@@ -88,8 +95,19 @@
                 "width"     =>  $handle->image_dst_x,
                 "height"    =>  $handle->image_dst_y
             );
-            echo $redata = json_encode($redata);
+
+			//直接返回图片URL
+            if($type == 'url'){
+	            echo $imgurl;
+            }
+            else{
+	            //返回json
+	            echo $redata = json_encode($redata);
+            }
+            
             $handle->clean();
+            //继续请求鉴黄接口
+            $basis->curlZip($account_id,$config['domain']);
         } else {
             //上传出现错误，返回报错信息
             $redata = array(

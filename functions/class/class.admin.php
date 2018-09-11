@@ -93,6 +93,53 @@
                     break;
             }
         }
+        //新版查询图片
+        function newquery($type,$date = null){
+	        //echo $type;
+	        //exit;
+	        //获取当前时间
+	        $thetime = date('Y-m',time());
+	        //对时间进行拆分
+	        if($date != null){
+		        $date = explode("|",$date);
+		        
+		        $starttime = $date[0];
+		        $endttime = $date[1];
+	        }
+	        
+            $config = $this->config;
+            $database = $this->database;
+
+            //判断类型
+            switch ($type) {
+                case 'user':
+                    // echo 'dsd';
+                    $datas = $database->select("imginfo", "*", [
+                        "dir" 	=> $config['userdir'],
+                        "date[~]"	=> $thetime,
+                        "ORDER" => ["id" => "DESC"]
+                    ]);
+                    // var_dump( $database->log() );
+                    // exit;
+                    return $datas;  
+                    break;
+                case 'admin':
+                    $datas = $database->select("imginfo", "*", [
+                        "dir" => $config['admindir'],
+                        "date[~]"	=> $thetime,
+                        "ORDER" => ["id" => "DESC"]
+                    ]);
+                    return $datas;
+                    break; 
+                default:
+                    $sql = "SELECT * FROM imginfo WHERE date(date) BETWEEN '$starttime' AND '$endttime' ORDER BY `id` DESC";
+                    
+                    $datas = $database->query($sql);
+                    //var_dump($database->log());
+                    return $datas;
+                    break;
+            }
+        }
         //删除一张图片
         function delete($id){
             $config = $this->config;

@@ -34,7 +34,7 @@
             <?php foreach ($imgs as $img) {
             ?>
             <div class="layui-col-lg4 picadmin">
-                <img lay-src="<?php echo $img['url']; ?>" layer-src="<?php echo $img['url']; ?>" alt="ID: <?php echo $img['id']; ?>" />
+                <img lay-src="<?php echo $img['url']; ?>" layer-src="<?php echo $img['url']; ?>" alt="ID: <?php echo $img['id']; ?>" src = "../static/loading32.gif" />
             </div>
             <?php } ?>
             </div>
