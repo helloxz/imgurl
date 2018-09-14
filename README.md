@@ -6,6 +6,12 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发，不
 * 需要exif函数支持
 * SQLite 3
 
+### 安装
+* 访问：<a href = "https://github.com/helloxz/imgurl/archive/master.zip" target = "_blank" rel = "nofollow">master.zip</a>下载最新版ImgURL程序，放到您的站点根目录并解压。
+* 访问 `http(s)://domain.com/check.php` 获取配置信息，并记录下来。
+* 修改 `config.php` 设置你自己的域名和密码，访问 `http(s)://domain.com/` 即可，就是这么简单。
+* ** 更多设置请参考帮助文档 **：[https://doc.xiaoz.me/docs/imgurl](https://doc.xiaoz.me/docs/imgurl) （必看）
+
 ### 开发计划
 - [x] 图片上传与预览
 - [x] 一键生成链接
@@ -14,6 +20,7 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发，不
 - [x] 图片压缩
 - [x] 图片鉴黄
 - [x] API上传
+- [x] 油猴脚本上传
 - [ ] 图片水印
 
 
@@ -26,6 +33,7 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发，不
 * 优化“探索发现”，之前为随机显示12张，现在显示本月所有图片（流加载）
 * 优化后台“看图模式”
 * 修复一些BGU，优化CSS
+* 增加ImgURL脚本，可在任意网页上传图片，参考：[https://www.xiaoz.me/archives/11038](https://www.xiaoz.me/archives/11038)
 
 #### v1.2 - 2018.08.11
 * 增加URL批量上传
@@ -40,21 +48,18 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发，不
 * 优化IP获取，及其它细节优化
 * 修复一些BUG
 
-### 安装
-* 访问：<a href = "https://github.com/helloxz/imgurl/archive/master.zip" target = "_blank" rel = "nofollow">master.zip</a>下载最新版ImgURL程序，放到您的站点根目录并解压。
-* 访问`http(s)://domain.com/check.php`获取配置信息，并记录下来。
-* 修改`config.php`设置你自己的域名和密码，访问 `http(s)://domain.com/` 即可，就是这么简单。
-* 更多设置请参考帮助文档：[https://doc.xiaoz.me/docs/imgurl](https://doc.xiaoz.me/docs/imgurl)
-
 
 ### 安全设置
 * 配置完毕后测试功能没问题，请删除根目录的`check.php`
 * Apache默认已经通过`.htaccess`文件来屏蔽数据库下载
 * Nginx用户请在server段内添加如下配置，并重启Nginx
-```
+```nginx
 location ~* \.(db3)$ {  
     deny all;  
 } 
+location ~* ^/(temp|upload)/.*.(php|php5)$ {
+    return 444;
+}
 ```
 
 ### Demo

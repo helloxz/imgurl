@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./static/layui/css/layui.css">
     <link rel="stylesheet" href="./static/style.css?v=1.3">
     <script src = "https://libs.xiaoz.top/clipBoard.js/clipBoard.min.js"></script>
-    <script src = "./static/index.js"></script>
+    <script src = "./static/ctrv-upload.js"></script>
 </head>
 <body>
     <!-- 顶部导航栏 -->
@@ -29,7 +29,7 @@
                             <li class="layui-nav-item"><a href="found.php"><i class="layui-icon">&#xe60d;</i> 探索发现</a></li>
                             <li class="layui-nav-item"><a href="sm.php"><i class="layui-icon">&#xe681;</i> SM.MS</a></li>
                             <li class="layui-nav-item"><a href="https://doc.xiaoz.me/#/imgurl/api" target = "_blank"><i class="layui-icon">&#xe653;</i> API</a></li>
-                            <li class="layui-nav-item"><a href="https://doc.xiaoz.me/docs/imgurl" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe705;</i> 帮助文档</a></li>
+                            <li class="layui-nav-item"><a href="https://doc.xiaoz.me/#/imgurl/" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe705;</i> 帮助文档</a></li>
                             <li class="layui-nav-item"><a href="https://github.com/helloxz/imgurl" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe635;</i> 源码</a></li>
                             <li class="layui-nav-item"><a href="about.php"><i class="layui-icon">&#xe60b;</i> 关于</a></li>
                         </ul>
