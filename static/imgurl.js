@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ImgURL上传脚本
 // @namespace    https://imgurl.org/
-// @version      0.2
+// @version      0.21
 // @description  ImgURL快捷上传工具
 // @author       xiaoz.me
 // @match        http://*/*
@@ -14,7 +14,7 @@
     'use strict';
 
     //定义一个全局弹出层
-    window.layerstart = '<div id = "layer" style = "box-shadow: 1px 1px 2px #888888;border-radius:5px;top:0em;left:0;width:1280px;height:720px;background-color:#FFFFFF;position:fixed;z-index:999;display:none;border:1px solid #d2d2d2">';
+    window.layerstart = '<div id = "layer" style = "box-shadow: 1px 1px 2px #888888;border-radius:5px;top:0em;left:0;width:80%;height:720px;background-color:#FFFFFF;position:fixed;z-index:999;display:none;border:1px solid #d2d2d2">';
     layerstart += '<div style="text-align:right;padding:0.8em;border-bottom:1px solid #d2d2d2;"><a href="javascript:;" onclick="closelayer()" style="color:#FFFFFF;background-color:#FF5722;width:80px;text-align:center;padding:0.5em;border-radius:2px;padding-left:1em;padding-right:1em;">关闭</a></div>';
     window.layerend = '</div>';
 
@@ -24,13 +24,20 @@
 	    var bheight = window.screen.availHeight;
 	    var layertop = (bheight - 720) / 2;
 	    var layerleft = (bwidth - 1280) / 2;
+	    
+	    if(layertop <= 70){
+		    layertop = "1em";
+	    }
+	    else{
+		    layertop = layertop + "px";
+	    }
 
 	    //改变css
 	    //$("#layer").css({"top":layertop,"left":layerleft});
 	    //原生js改变css
 	    //alert(layertop);
-	    document.getElementById("layer").style.top = layertop + "px";
-	    document.getElementById("layer").style.left = layerleft + "px";
+	    document.getElementById("layer").style.top = layertop;
+	    document.getElementById("layer").style.left = "10%";
     }
     //创建一个遮罩层
     window.keepout = function(){
