@@ -175,6 +175,11 @@ function login(){
     var user = $("#user").val();
     var password = $("#password").val();
 
+    if((user == '') || (password == '')){
+	    layer.msg('用户名或密码不能为空！');
+	    return false;
+    }
+
     $.post("../functions/Controller.php?type=login",{user:user,password:password},function(data,status){
         layer.msg(data,{time:2000});
     });

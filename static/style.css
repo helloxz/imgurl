@@ -30,6 +30,9 @@
 .login{
     margin-top:100px;
 }
+.login button{
+	width:100%;
+}
 #upimg{
     
     margin-left:auto;
@@ -204,4 +207,23 @@
 }
 .urltext{
 	margin-top:2em;
+}
+#tongji .item{
+	/*height:8em;*/
+	background-color: #F0F0F0;
+    /*border:1px solid #e2e2e2;*/
+    border-radius: 2px;
+    background-color: #99CCCC;
+    color:#FFFFFF;
+    text-align:center;
+    margin-bottom:1em;
+    line-height:3em;
+    
+}
+#tongji .item:hover{
+	-webkit-box-shadow: 2px 2px 8px 1px rgba(20, 20, 20, 0.15); -moz-box-shadow: 2px 2px 8px 1px rgba(20, 20, 20, 0.15);box-shadow: 2px 2px 8px 1px rgba(20, 20, 20, 0.15);
+	cursor:pointer;
+}
+#tongji a{
+	color:#FFFFFF;
 }
