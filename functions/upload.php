@@ -2,7 +2,7 @@
     //载入配置文件
     include_once("./class/class.user.php");
     //阻止用户直接访问
-	if( $_SERVER['HTTP_REFERER'] != $config['domain'] )
+	if( !strstr($_SERVER['HTTP_REFERER'],$config['domain']) )
 	{
 		$basis->re_error('非法请求！');
 	}
