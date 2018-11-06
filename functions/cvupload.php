@@ -24,7 +24,14 @@
     $picname = md5($ip.$ua.date('Y-m-d H:i:s',time()));
     //截取16个字符
     $picname = substr($picname,8,16).'.png';
-	$onepath = $updir.'/'.date('ym',time()).'/'.$picname;
+    //本月图片路径
+    $monthdir = APP.$updir.'/'.date('ym',time());
+    
+    $onepath = $updir.'/'.date('ym',time()).'/'.$picname;
+    //路径不存在，则创建路径
+    if(!file_exists($monthdir)){
+        mkdir($monthdir,0777);
+    }
     //图片完整存储路径
     $picpath = APP.$onepath;
 

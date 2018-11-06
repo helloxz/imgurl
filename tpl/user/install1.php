@@ -11,7 +11,7 @@
             </colgroup>
             <thead>
                 <tr>
-                <th>目录</th>
+                <th>目录/说明</th>
                 <th>要求</th>
                 <th>检测结果</th>
                 </tr> 
@@ -28,7 +28,7 @@
                 <td><?php echo $statusarr['db']; ?></td>
                 </tr>
                 <tr>
-                <td>组建</td>
+                <td>组件</td>
                 <td>pdo_sqlite </td>
                 <td><?php echo $statusarr['pdo']; ?></td>
                 </tr>
