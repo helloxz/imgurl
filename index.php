@@ -1,6 +1,15 @@
 <?php
     $title = "ImgURL - 简单、纯粹的图床程序。";
     include_once("./tpl/user/header.php");
+    //判断程序是否已安装
+    $homedir = __DIR__;
+    $homedir = str_replace("\\","/",$homedir);
+    //$homedir = str_replace("tpl/user","",$homedir);
+    $lockfile = $homedir.'/config.php';
+    
+    if(!file_exists($lockfile)){
+        header("location:./install.php?setup=1");
+    }
 ?>
 
 <div class="layui-container">

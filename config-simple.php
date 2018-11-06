@@ -1,14 +1,14 @@
 <?php
     //项目绝对路径
-    define("APP","D:/wwwroot/imgurl/");
+    define("APP","homedir");
     
     //载入数据库类
     include_once(APP."functions/class/Medoo.php");
 
     $config = array(
-        "domain"    =>  "http://localhost/imgurl/", //站点地址
-        "user"      =>  "xiaoz",                    //管理员账号
-        "password"  =>  "xiaoz.me",                 //管理员密码
+        "domain"    =>  "https://imgurl.org/", //站点地址
+        "user"      =>  "imguser",                    //管理员账号
+        "password"  =>  "imgpass",                 //管理员密码
         "limit"		=>	5,							//游客上传数量限制
         "watermark"	=>	"imgurl.org",				//图片文字水印
         "userdir"   =>  "temp",                     //游客上传目录，一般不用做修改

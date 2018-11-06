@@ -1,4 +1,6 @@
-<?php error_reporting(E_ALL^E_NOTICE^E_WARNING^E_DEPRECATED); ?>
+<?php 
+    error_reporting(E_ALL^E_NOTICE^E_WARNING^E_DEPRECATED); 
+?>
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans" xmlns="http://www.w3.org/1999/xhtml">
 <head>
