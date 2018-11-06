@@ -345,11 +345,12 @@ function compress(id){
 
 //IP查询
 function ipquery(ip){
-    $.get("https://ip.awk.sh/api.php?data=addr&ip=" + ip,function(data,status){
+    $.get("https://api.ttt.sh/ip/qqwry/" + ip,function(data,status){
         if(status == 'success') {
+            var info = JSON.parse(data);
             layer.open({
                 title: 'IP查询结果：'
-                ,content: data
+                ,content: info.address
                 ,time:3000
             });  
         }

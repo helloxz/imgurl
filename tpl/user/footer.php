@@ -18,6 +18,6 @@
 	<!-- 底部END -->
     <script src="./static/jquery.min.js"></script>
 	<script src="./static/layui/layui.js"></script>
-	<script src="./static/embed.js?v=1.31"></script>
+	<script src="./static/embed.js?v=1.40"></script>
 </body>
 </html>
