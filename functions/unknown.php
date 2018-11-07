@@ -14,7 +14,9 @@
 	//遍历数据
 	foreach( $datas as $key => $value )
 	{
-		$url = $config['domain'].'dispose.php?id=' + $value['id'];
+		$url = $config['domain'].'dispose.php?id='.$value['id'];
+
+		//echo $url;
 
 		//请求鉴黄接口
 		$curl = curl_init($url);
