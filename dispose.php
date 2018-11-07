@@ -69,7 +69,7 @@
         $dispose['compress'] = 1;
     }
     //对图片进行鉴黄
-    if(($ModerateContent['option'] == true) && ($level == 0)) {
+    if(($ModerateContent['option'] == true) && (($level == 0) || ($level == null))) {
         $apiurl = "https://www.moderatecontent.com/api/v2?key=".$mckey."&url=".$imgurl;
         $curl = curl_init($apiurl);
 
