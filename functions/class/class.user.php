@@ -173,6 +173,15 @@
 		    curl_close($curl);
 		    //var_dump($html);
        	}
+       	//查询未识别图片
+        function unknown(){
+	        $thedate = date('Y-m-d',time());
+	        $sql = "SELECT * FROM `imginfo` WHERE (level IS NULL OR level = 0) AND date = '$thedate'";
+	        $database = $this->database;
+	        //$datas = $database->select("imginfo","*");
+	        $datas = $database->query($sql)->fetchAll();
+	        return $datas;
+        }
     }
 
     //自动初始化完成一些基础操作
