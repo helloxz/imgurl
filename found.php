@@ -17,14 +17,14 @@
 ?>
 
 <div class="layui-container" style = "margin-bottom:6em;">
-    <div class="layui-row">
+    <div class="layui-row" >
         <div class="msg"><i class="layui-icon">&#xe645;</i>  此页面显示本月上传图片，如果不显示说明本月暂未上传图片。</div>
         <div id = "found-img" class = "layui-col-space20">
             <?php foreach ($datas as $img) {
                     $imgurl = $domain.$img['path'];
                     $imgid = $img['id'];
             ?>
-            <div class="layui-col-lg4">
+            <div class="layui-col-lg4" style = "height:220px;border:1px solid #ECECEC;margin-top:1em;">
                 <!-- <a href="javascript:;" onclick = "userpreview('<?php echo $imgurl ?>',<?php echo $imgid; ?>)"></a> -->
                 <img lay-src="<?php echo $imgurl ?>" layer-src="<?php echo $imgurl ?>" src = "./static/loading32.gif">
             </div>
