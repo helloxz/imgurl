@@ -83,6 +83,8 @@
 	/*margin-top:1em;*/
 	margin-left:auto;
 	margin-right:auto;
+	margin:0 auto;
+    display: block;
 }
 .msg{
     /* width:100%; */
@@ -106,6 +108,8 @@
     max-height:100%;
     /*border:1px solid #ECECEC;*/
 	border-radius:5px;
+	margin:0 auto;
+    display: block;
 }
 .page{
     margin-bottom:100px;
