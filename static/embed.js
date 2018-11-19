@@ -283,6 +283,7 @@ function deleteimg(id){
         $.get("./delete.php?id="+id,function(data,status){
             if(data == 'ok') {
                 $("#imgid"+id).remove();
+                console.log("#imgid"+id);
             }
             else{
                 alert(data);
@@ -475,3 +476,26 @@ function screen(page){
 		window.location.href = page + "?page=1&date=" + starttime + '|' + endtime;
 	}
 }
+//显示图片操作按钮
+function show_imgcon(id){
+    $("#imgcon" + id).show();
+}
+//隐藏图片操作按钮
+function hide_imgcon(id){
+    $("#imgcon" + id).hide();
+}
+//新版删除图片
+// function deleteimg(id){
+//     layer.confirm('确认删除？', {icon: 3, title:'温馨提示！'}, function(index){
+//         $.get("./delete.php?id="+id,function(data,status){
+//             if(data == 'ok') {
+//                 $("#imgid"+id).remove();
+//             }
+//             else{
+//                 alert(data);
+//             }
+//         });
+    
+//     layer.close(index);
+//     });
+// }

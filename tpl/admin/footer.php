@@ -13,7 +13,7 @@
 
     <script src="../static/jquery.min.js"></script>
 	<script src="../static/layui/layui.js"></script>
-	<script src="../static/embed.js?v=1.31"></script>
+	<script src="../static/embed.js?v=v1.41"></script>
 	<script>
 	layui.use('laydate', function(){
 	  var laydate = layui.laydate;

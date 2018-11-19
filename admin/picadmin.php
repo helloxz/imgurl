@@ -63,9 +63,15 @@
                 $imgurl = $config['domain'].$img['path'];
                 $id = $img['id'];
             ?>
-            <div class="layui-col-lg4 picadmin">
+            <div id = "imgid<?php echo $id; ?>" class="layui-col-lg4 picadmin" onmouseover = "show_imgcon(<?php echo $id; ?>)" onmouseout = "hide_imgcon(<?php echo $id; ?>)">
                 <!-- <a id = "imgid<?php echo $id; ?>" href="javascript:;" onclick = "adminshow('<?php echo $imgurl ?>',<?php echo $id; ?>)"></a> -->
                 <img lay-src="<?php echo $imgurl; ?>" layer-src="<?php echo $imgurl; ?>" alt="图片ID: <?php echo $id; ?>" src = "../static/loading32.gif">
+                <!-- 删除按钮 -->
+                <div class = "imgcon" id = "imgcon<?php echo $id; ?>">
+                    <a href="javascript:;" title = "图片链接" class="layui-btn layui-btn-xs layui-btn-normal" onclick = "adminshow('<?php echo $imgurl ?>',<?php echo $id; ?>)"><i class="layui-icon">&#xe64c;</i></a>
+                    <a href="javascript:;" title = "删除这张图片" class="layui-btn layui-btn-xs layui-btn-danger" onclick="deleteimg(<?php echo $id; ?>)"><i class="layui-icon">&#xe640;</i></a>
+                </div>
+                <!-- 删除按钮END -->
             </div>
             <?php } ?>
         </div>
@@ -75,6 +81,44 @@
         <!-- 后台内容部分END -->
     </div>
 </div>
+<!--图片查看-->
+<div id="adminshow">
+	<div style = "margin-top:2em;"><center><img src="" alt=""></center></div>
+	<div id = "copy">
+		<center>
+		<table class="layui-table" lay-skin="nob">
+            <colgroup>
+                <col width="80">
+                <col width="520">
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td>URL</td>
+                    <td><input type="text" class="layui-input" id="url" data-cip-id="url"></td>
+                    <td><a href="javascript:;" class="layui-btn layui-btn-sm" onclick="newcopy('url')">复制</a></td>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td><input type="text" class="layui-input" id="html" data-cip-id="html"></td>
+                    <td><a href="javascript:;" class="layui-btn layui-btn-sm" onclick="newcopy('html')">复制</a></td>
+                </tr>
+                <tr>
+                    <td>MarkDown</td>
+                    <td><input type="text" class="layui-input" id="markdown" data-cip-id="markdown"></td>
+                    <td><a href="javascript:;" class="layui-btn layui-btn-sm" onclick="newcopy('markdown')">复制</a></td>
+                </tr>
+                <tr>
+                    <td>BBcode</td>
+                    <td><input type="text" class="layui-input" id="bbcode" data-cip-id="bbcode"></td>
+                    <td><a href="javascript:;" class="layui-btn layui-btn-sm" onclick="newcopy('bbcode')">复制</a></td>
+                </tr>
+            </tbody>
+        </table>
+        </center>
+	</div>
+</div>
+<!--图片查看-->
 <?php
     // 载入页脚
     // 载入头部

@@ -98,6 +98,7 @@
     top:4em;
 }
 .picadmin{
+    /* display:table; */
 	margin:0 auto;
 	height:200px;
 	border:1px solid #ECECEC;
@@ -206,7 +207,8 @@
 	display: none;
 }
 #adminshow img{
-	max-width:680px;
+    max-width:680px;
+    max-height: 400px;
 	text-align:center;
 	
 }
@@ -236,4 +238,12 @@
 }
 #tongji a{
 	color:#FFFFFF;
+}
+/* 图片控制 */
+.imgcon{
+    position: absolute;
+    z-index: 99;
+    right:5px;
+    bottom: 5px;
+    display: none;
 }
