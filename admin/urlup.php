@@ -47,7 +47,7 @@
 			      <textarea rows="10" id = "arrurl" name="desc" placeholder="请输入图片地址，一行一个" class="layui-textarea"></textarea>
 			    </div>
 			    <div style = "margin-top:1em;">
-				    <a href="javscript:;" class="layui-btn" onclick = "urlup()">开始上传</a>
+				    <a href="javascript:;" class="layui-btn" onclick = "urlup()">开始上传</a>
 			    </div>
             </table>
                 <?php } ?>
