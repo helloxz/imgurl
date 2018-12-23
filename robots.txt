@@ -1,6 +1,0 @@
-User-Agent: *
-Disallow: /admin/
-Disallow: /db/
-Disallow: /functions/
-Disallow: /static/
-Disallow: /tpl/
