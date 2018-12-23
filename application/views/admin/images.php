@@ -73,10 +73,10 @@
 	</div>
 	<!-- 分页按钮 -->
 	<div class="layui-row" style = "margin-top:2em;">
-		<div class="layui-col-lg4" id = "paging">
+		<div class="layui-col-lg6" id = "paging">
             <?php echo $page; ?>
         </div>
-        <div class="layui-col-lg8">
+        <div class="layui-col-lg6">
             <label>选中项：</label><button class="layui-btn layui-btn-sm layui-btn-danger" onclick = "del_more()">删除</button>
         </div>
 	</div>
