@@ -1,0 +1,15 @@
+//图片水印
+	    $handle->image_text = 'xiaoz.me';
+	    //文字颜色
+	    $handle->image_text_color = '#585858';
+	    //字体路径
+	    $handle->image_text_font = 5;
+	    //字体透明度
+	    $handle->image_text_opacity = 80;
+	    //水平坐标
+	    $handle->image_text_x = 10;
+	    //垂直坐标
+	    $handle->image_text_y = $handle->image_dst_y - 30;
+	    //字体大小
+	    $handle->image_text_size = 60;
+	    //图片水印END
