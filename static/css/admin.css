@@ -1,0 +1,133 @@
+body a{
+    color:#009688;
+}
+.layui-logo a{
+    color:#009688;
+}
+.site{
+    margin-top:2em;
+}
+.setting{
+    margin-top:2em;
+}
+.setting-msg{
+    width:100%;
+    color: #fff;
+    background-color: #fc7c5f;
+    padding:0.8em;
+    border-radius: 5px;
+    margin-bottom:2em;
+}
+.identify-msg{
+    margin-bottom: 2em;
+}
+.identify-msg li{
+    list-style:decimal;
+}
+.identify-msg ol{
+    margin-left:2em;
+    
+}
+.urltext label,.urlupmsg label{
+    margin-bottom:1em;
+    display:block;
+}
+.showimgs{
+
+}
+#found-img{
+    margin-top:1em;
+    
+}
+.showimgs img{
+    max-width: 100%;
+    max-height:100%;
+    /*border:1px solid #ECECEC;*/
+	/* border-radius:5px; */
+	/*margin-top:1em;*/
+	margin-left:auto;
+	margin-right:auto;
+	margin:0 auto;
+    display: block;
+}
+.img_thumb{
+    
+    border:1px solid #dddddd;
+    /* border-radius: 5px; */
+    text-align:center;
+    height:166.25px;
+    background: #F6F6F6;
+    display: block;
+    /* display: flex;
+    align-items: center; */
+    
+}
+.img_thumb img{
+    /* width:290px;
+    height:175px; */
+    max-width: 100%;
+    /* margin: 2px 2px 2px 2px; */
+    /* max-height: 100%;   */
+}
+/* 分页CSS样式 */
+
+#paging .paging{
+    padding:0.6em;
+    background: #eeeeee;
+    margin-right: 0.5em;
+}
+#paging strong{
+    padding:0.6em;
+    background: #5FB878;
+    margin-right: 0.5em;
+    color:#FFFFFF;
+}
+.operate{
+    /* border-top:1px solid #dddddd;
+    border-left:1px solid #dddddd;
+    border-right:1px solid #dddddd; */
+    background-color:#F0F0F0;
+    padding:0.3em;
+}
+.operate div{
+    display: inline;
+    margin-right:0.5em;
+}
+.operate .choose{
+    height: 22px;
+    line-height: 22px;
+    padding: 0 5px;
+    font-size: 12px;
+}
+/* #operate .choose{
+    height: 22px;
+    line-height: 22px;
+    padding: 0 5px;
+    font-size: 12px;
+} */
+#imglink{
+    z-index: 990;
+    display: none;
+}
+.statistics{
+    background-color:#009688;
+    text-align: center;
+    font-size:30px;
+}
+.statistics a{
+    color:#FFFFFF;
+}
+.analyze{
+    background-color:#009688;
+    text-align:center;
+    color:#FFFFFF;
+}
+.analyze h3{
+    line-height: 2.4em;
+}
+.analyze p{
+    line-height: 2em;
+}
+.analyze a{
+    color:#FFFFFF;
+}
