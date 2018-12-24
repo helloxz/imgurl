@@ -25,7 +25,7 @@
             <div class="layui-col-lg3" id = "img<?php echo $img['id']; ?>">
                 <div class = "operate">
                     <!-- 选择按钮 -->
-                    <div class = "choose"><input type="checkbox" name="" value = "<?php echo $img['id']; ?>"></div>
+                    <div class = "choose"><input type="checkbox" name="chk" value = "<?php echo $img['id']; ?>"></div>
                     <!-- 压缩图标 -->
                     <div>
                         <button class="layui-btn  layui-btn-xs <?php echo $css; ?>" title = "压缩图片" onclick = "compress(<?php echo $img['id']; ?>)">
@@ -77,7 +77,7 @@
             <?php echo $page; ?>
         </div>
         <div class="layui-col-lg6">
-            <label>选中项：</label><button class="layui-btn layui-btn-sm layui-btn-danger" onclick = "del_more()">删除</button>
+            <!-- <button class="layui-btn layui-btn-xs" id = "checkAll">全选</button>--> <label>选中项：</label><button class="layui-btn layui-btn-xs layui-btn-danger" onclick = "del_more()">删除</button> 
         </div>
 	</div>
 	<!-- 分页按钮 -->
