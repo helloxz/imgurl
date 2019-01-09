@@ -11,7 +11,7 @@
 		<div class = "layui-container">
 			<div class = "layui-row">
 				<div class = "layui-col-lg12">
-					Copyright © 2017-2018 Powered by <a href="https://imgurl.org/" target = "_blank">ImgURL</a> | Author <a href="https://www.xiaoz.me/" target = "_blank">xiaoz.me</a> | 
+					Copyright © 2017-2019 Powered by <a href="https://imgurl.org/" target = "_blank">ImgURL</a> | Author <a href="https://www.xiaoz.me/" target = "_blank">xiaoz.me</a> | 
 					<!-- 简单判断用户是否登录 -->
 					<?php if((isset($_COOKIE['user'])) && (isset($_COOKIE['token']))){ ?>
 						<a href="/user/logout">logout</a>

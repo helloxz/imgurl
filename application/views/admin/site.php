@@ -33,7 +33,7 @@
 				<div class="layui-form-item layui-form-text">
 					<label class="layui-form-label">统计代码</label>
 					<div class="layui-input-block">
-						<textarea name="analytics" placeholder="请输入统计代码" class="layui-textarea"><?php echo $analytics; ?></textarea>
+						<textarea name="analytics" placeholder="请输入统计代码，目前仅测试过百度统计，其它统计代码可能会出错。" class="layui-textarea"><?php echo $analytics; ?></textarea>
 					</div>
 				</div>
 				<!-- <div class="layui-form-item layui-form-text">

@@ -48,6 +48,18 @@
 				<p><a href="https://github.com/helloxz/imgurl" target = "_blank">https://github.com/</a></p>
 			</div>
 		</div>
+		<div class="layui-col-lg3">
+			<div class = "analyze">
+				<h3><i class="fa fa-paypal"></i> 打赏支持</h3>
+				<p><a href="https://dwz.ovh/imgurl" target = "_blank">https://dwz.ovh/imgurl</a></p>
+			</div>
+		</div>
+		<div class="layui-col-lg3">
+			<div class = "analyze">
+				<h3><i class="fa fa-qq"></i> 技术支持（付费）</h3>
+				<p>QQ:337003006</p>
+			</div>
+		</div>
 	</div>
 </div>
 

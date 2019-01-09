@@ -18,7 +18,7 @@
             $siteinfo->title = '探索发现 - '.$siteinfo->title;
 
             //查询图片信息,返回对象
-            $data['imgs'] = $this->query->found(32);
+            $data['imgs'] = $this->query->found(96);
             //查询域名
             $data['domain'] = $this->query->domain('localhost');
 
