@@ -12,10 +12,11 @@ body a{
 }
 .setting-msg{
     width:100%;
-    color: #fff;
-    background-color: #fc7c5f;
+    color: #FF5722;
+    border-left: 3px solid #FF5722;
+    background-color: #F0F0F0;
     padding:0.8em;
-    border-radius: 5px;
+    border-radius: 1px;
     margin-bottom:2em;
 }
 .identify-msg{

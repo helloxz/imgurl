@@ -4,6 +4,15 @@
     $this->load->helper('basic');
 ?>
 <div class="layui-container" style = "margin-top:2em;margin-bottom:6em;">
+    <div class="layui-row">
+        <div class="layui-col-lg12">
+        <!-- <div class="layui-btn-group">
+            <button class="layui-btn layui-btn-sm"> 默认</button>
+            <button class="layui-btn layui-btn-sm">浏览量</button>
+            <button class="layui-btn layui-btn-sm">高清</button>
+        </div> -->
+        </div>
+    </div>
     <div class="layui-row layui-col-space5" id = "found">
         <?php 
                 foreach ($imgs as $img)

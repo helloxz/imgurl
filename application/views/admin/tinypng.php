@@ -1,8 +1,8 @@
 <div class="layui-container site">
 	<div class="layui-row">
-		<div class="layui-col-lg8">
+		<div class="layui-col-lg12">
 			<div class="setting-msg">
-				ImgURL需要使用TinyPNG提供的API来压缩图片，可同时设置2个API KEY，详细说明请查看帮助文档。
+				ImgURL需要使用 <a href="https://tinypng.com/" rel = "nofollow" target = "_blank">TinyPNG</a> 提供的API来压缩图片，需要同时设置2个API KEY，详细说明请查看<a href="https://doc.xiaoz.me/#/imgurl2/maintain?id=%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9" target = "_blank" rel = "nofollow">帮助文档</a>。
 			</div>
 		</div>
 		<div class="layui-col-lg6">
