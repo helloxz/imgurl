@@ -1,0 +1,10 @@
+version: '3'
+services:
+  imgurl:
+    build: .  # 编译需要梯子，没有梯子可删去本行用已经编译好的镜像
+    image: zqiannnn/imgurl:2.0
+    ports:
+      - 8080:80
+    volumes:
+      - ./data:/var/www/html/data
+      - ./imgs:/var/www/html/imgs
