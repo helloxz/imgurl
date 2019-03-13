@@ -51,7 +51,10 @@
                         return false;
                     }
                     else{
-                        echo '权限不足！';
+                        echo "权限不足，请<a href = '/user/login'>重新登录</a> 。";
+                        //清除cookies
+                        setcookie("user", '', time()-3600,"/");
+                        setcookie("token", '', time()-3600,"/");
                         exit;
                     }
                 }
@@ -71,7 +74,7 @@
 
             curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36");
             //伪造reffer
-            curl_setopt ($ch, CURLOPT_REFERER, $url);
+            curl_setopt ($curl, CURLOPT_REFERER, $url);            
             curl_setopt($curl, CURLOPT_FAILONERROR, true);
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -81,6 +84,7 @@
             curl_setopt($curl , CURLOPT_TIMEOUT, 60);
 
             $html = curl_exec($curl);
+            
             curl_close($curl);
             //返回数据
             return $html;

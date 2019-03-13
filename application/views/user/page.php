@@ -6,7 +6,12 @@
 		<div class="layui-col-lg3">
 			<div id="page-sidebar">
 				<div class = "sidebar">
-					<a href="https://e.aiguobit.com/?from=xiaoz" target="_blank" rel="nofollow noopener"><img class="alignnone size-full wp-image-6279" src="https://www.xiaoz.me/wp-content/uploads/2017/06/netssocks_300.png" /></a>
+					<a href="https://e.aiguobit.com/?from=xiaoz" target="_blank" rel="nofollow noopener"><img src = 'https://i.bmp.ovh/imgs/2019/03/009e7ca037f6a1a2.png' /></a>
+				</div>
+				<div class = "sidebar">
+					<a href="https://dwz.ovh/tencent" target="_blank" rel="nofollow">
+						<img src = 'https://i.bmp.ovh/imgs/2019/03/f77699ba0787ee47.jpg' />
+					</a>
 				</div>
 				<div class = "sidebar">
 					<a href="https://www.xiaoz.me/laoxue" target="_blank" rel="nofollow">

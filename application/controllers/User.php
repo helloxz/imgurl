@@ -68,9 +68,9 @@
             }
         }
         public function logout(){
-            echo '您已退出，将在5s后返回首页！';
+            echo '您已退出，将在3s后返回首页！';
             $this->clean_cookies();
-            header("Refresh:5;url=/");
+            header("Refresh:3;url=/");
             exit;
         }
         //清除COOKIE

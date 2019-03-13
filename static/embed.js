@@ -105,6 +105,10 @@ layui.use(['upload','form','element','layer'], function(){
                     identify(res.id);
                     //element.progress('up-status', col + '%');
                 }
+                else if(res.code == 0){
+                    layer.msg(res.msg);
+                    return false;
+                }
             } 
             ,error: function(index, upload){
                 layer.closeAll('loading'); //关闭loading
