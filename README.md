@@ -1,5 +1,5 @@
 # ImgURL
-ImgURL是一款简单、好用的图床程序，使用PHP + SQLite 3开发，不需要复杂的配置，开箱即用。
+ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发。
 
 ![](https://i.bmp.ovh/imgs/2018/12/06cf0ac3b7625b6b.png)
 
@@ -24,7 +24,8 @@ ImgURL是一款简单、好用的图床程序，使用PHP + SQLite 3开发，不
 * pathinfo
 
 ### 安装
-请参考帮助文档：[https://doc.xiaoz.me/](https://doc.xiaoz.me/#/imgurl2/)
+* 常规安装请参考帮助文档：[https://doc.xiaoz.me/](https://doc.xiaoz.me/#/imgurl2/)
+* 宝塔面板安装ImgURL参考：[https://www.xiaoz.me/archives/12081](https://www.xiaoz.me/archives/12081)
 
 ### Demo
 * [http://test.imgurl.org/](http://test.imgurl.org/)
@@ -35,11 +36,16 @@ ImgURL是一款简单、好用的图床程序，使用PHP + SQLite 3开发，不
 ![](https://www.xiaoz.me/wp-content/uploads/2013/12/juanzeng260.png)
 
 ### 鸣谢
+
+ImgURL的诞生离不开以下项目，在此表示感谢。
+
 * [LayUI](https://github.com/sentsin/layui)
 * [CodeIgniter](https://github.com/bcit-ci/CodeIgniter)
 * [clipBoard.js](https://github.com/baixuexiyang/clipBoard.js)
 * [Parsedown](https://github.com/erusev/parsedown)
 * [jQuery](https://github.com/jquery/jquery)
+* [tinypng](https://tinypng.com/)
+* [ModerateContent](https://www.moderatecontent.com/)
 
 ### 联系我
 * Blog：[https://www.xiaoz.me/](https://www.xiaoz.me/)
