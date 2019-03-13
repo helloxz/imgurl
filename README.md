@@ -33,7 +33,7 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发。
 * 密码：xiaoz.me
 
 ### 请我喝一杯咖啡
-![](https://www.xiaoz.me/wp-content/uploads/2013/12/juanzeng260.png)
+![](https://i.bmp.ovh/imgs/2019/03/cb349aa4a1b95997.png)
 
 ### 鸣谢
 
