@@ -10,13 +10,15 @@
 // 	});
 // });
 // 这个东西没值，你拿不到
-layui.use(['upload','form','element','layer'], function(){
+layui.use(['upload','form','element','layer','flow'], function(){
 		var upload = layui.upload;
         var form = layui.form;
         var element = layui.element;
         var layer   = layui.layer;
         var storage = $('#storage input[name="storage"]:checked ').val();
-
+		//图片懒加载
+		var flow = layui.flow;
+		flow.lazyimg();
         //图片查看器
         layer.photos({
             photos: '#found'
