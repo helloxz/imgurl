@@ -22,7 +22,7 @@
         public function compress($id){
             $id = strip_tags($id);
             $id = (int)$id;
-            $sql = "UPDATE img_images SET `compression` = 1";
+            $sql = "UPDATE img_images SET `compression` = 1 WHERE imgid={$id}";
             $query = $this->db->query($sql);
             if($query){
                 return TRUE;
@@ -33,9 +33,9 @@
         }
         //更新站点信息
         public function site($name,$data){
-            $id = strip_tags($name);
+            $name = strip_tags($name);
             
-            $sql = "UPDATE img_options SET `values` = '$data' WHERE `name` = '$name'";
+            $sql = "UPDATE img_options SET `values` = '$data' WHERE `name` = '{$name}'";
             $query = $this->db->query($sql);
             if($query){
                 return TRUE;
