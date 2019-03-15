@@ -25,7 +25,8 @@
             if($img->compression == 0){
                 //获取图片完整路径
                 $fullpath = FCPATH.$img->path;
-                $this->tinypng($fullpath);
+                $this->load->library('image');
+                $this->image->compress($fullpath);
                 //更新数据库
                 $this->load->model('update','',TRUE);
                 $this->update->compress($id);
