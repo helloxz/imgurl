@@ -51,7 +51,7 @@
             //@todo 建议使用列表类型而不是联名数组类型保存key
             $keys = json_decode($keys, true);
             $i = 'api'.rand(1, count($keys));
-            $key = $keys[$i-1];
+            $key = $keys[$i];
             
             $url = "https://api.tinify.com/shrink";
             $data = file_get_contents($path);
