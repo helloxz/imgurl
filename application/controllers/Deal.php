@@ -48,50 +48,12 @@
             $kyes = json_decode($kyes);
             $i = 'api'.rand(1,2);
             $key = $kyes->$i;
-            
-            $url = "https://api.tinify.com/shrink";
-            $data = file_get_contents($path);
-            
-            $ch = curl_init();
-            $user = "api";
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            //curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-            curl_setopt($ch, CURLOPT_USERPWD, "{$user}:{$key}");
-            // post数据
-            curl_setopt($ch, CURLOPT_POST, 1);
-            // post的变量
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-            //https
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            $output = curl_exec($ch);
-            curl_close($ch);
-            $output = json_decode($output);
-            //获取压缩后的图片链接
-            $outurl = $output->output->url;
 
-            //先判断是否是正常的URL，万一请求接口失败了呢
-            if(!filter_var($outurl, FILTER_VALIDATE_URL)){
-                //糟糕，没有验证通过，那就结束了
-                $this->err_msg('请求接口失败！');
+            $this->load->library('image');
+            $ret = $this->image->compress($path);
+            if(empty($ret)) {
+                $this->err_msg('压缩失败,请稍后重试！');
             }
-
-            //下载图片并保存覆盖
-            $curl = curl_init($outurl);
-            curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
-            curl_setopt($curl, CURLOPT_FAILONERROR, true);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-            #设置超时时间，最小为1s（可选）
-
-            $data = curl_exec($curl);
-            curl_close($curl);
-            
-            //重新保存图片
-            file_put_contents($path,$data);
 
             //最后别忘了更新数据库呀
             $sql = "UPDATE img_images SET compression = 1 WHERE `id` = $id";

@@ -38,14 +38,14 @@
             $image->clear();
         }
         //压缩图片
-        public function compress($source,$output='',$channel='tinypng'){
+        public function compress($source, $output='', $channel='tinypng') {
             if (empty($output)) {
                 $output = $source;
             }
             switch ($channel) {
                 case 'tinypng':
                     $key = "F8rNr5lh25WYcOECQvAqvcilBMAkhtIM";
-                    $this->tinypng($source,$output, $key);
+                    return $this->tinypng($source,$output, $key);
                 default :
                     return $source;
             }
@@ -82,8 +82,12 @@
             $data = json_decode($output);
             //获取图片压缩后的URL
             $url =  $data->output->url;
+            //先判断是否是正常的URL，万一请求接口失败了呢
+            if (!filter_var($url, FILTER_VALIDATE_URL)) {
+                return false;
+            }
             //保存图片
-            $this->download($url, $outputPath);
+            return $this->download($url, $outputPath);
         }
 
         //传递图片URL，并保存文件
