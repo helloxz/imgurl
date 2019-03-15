@@ -38,8 +38,77 @@
             $image->clear();
         }
         //压缩图片
-        public function compress($source){
+        public function compress($source, $output='', $channel='tinypng') {
+            if (empty($output)) {
+                $output = $source;
+            }
+            switch ($channel) {
+                case 'tinypng':
+                    $key = "F8rNr5lh25WYcOECQvAqvcilBMAkhtIM";
+                    return $this->tinypng($source,$output, $key);
+                default :
+                    return $source;
+            }
             
+        }
+
+        //请求tinypng压缩接口,传入图片完整路径
+        protected function tinypng($path, $outputPath='', $key=''){
+            if (empty($outputPath)) {
+                $outputPath = $path;
+            }
+
+            //tinypng API地址
+            $api_url = "https://api.tinify.com/shrink";
+            $data = file_get_contents($path);
+            //$post_data = array ("username" => "bob","key" => "12345");
+            //$ch = curl_init();
+            $ch = curl_init();
+            $user = "api";
+            curl_setopt($ch, CURLOPT_URL, $api_url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            //curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+            curl_setopt($ch, CURLOPT_USERPWD, "{$user}:{$key}");
+            // post数据
+            curl_setopt($ch, CURLOPT_POST, 1);
+            // post的变量
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            //https
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            $output = curl_exec($ch);
+            curl_close($ch);
+            //打印获得的数据
+            $data = json_decode($output);
+            //获取图片压缩后的URL
+            $url =  $data->output->url;
+            //先判断是否是正常的URL，万一请求接口失败了呢
+            if (!filter_var($url, FILTER_VALIDATE_URL)) {
+                return false;
+            }
+            //保存图片
+            return $this->download($url, $outputPath);
+        }
+
+        //传递图片URL，并保存文件
+        protected function download($url, $path){
+            //获取图片数据并保存
+            $curl = curl_init($url);
+
+            curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36");
+            curl_setopt($curl, CURLOPT_FAILONERROR, true);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+            #设置超时时间，最小为1s（可选）
+            #curl_setopt($curl , CURLOPT_TIMEOUT, 1);
+
+            $filedata = curl_exec($curl);
+            curl_close($curl);
+
+            //将图片数据覆盖源文件
+            return file_put_contents($path,$filedata);
         }
     }
 
