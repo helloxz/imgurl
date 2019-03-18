@@ -41,7 +41,7 @@
           <?php echo $_COOKIE['user']; ?>
         </a>
         <dl class="layui-nav-child">
-          <dd><a href="">修改密码</a></dd>
+          <dd><a href="/user/resetpass">修改密码</a></dd>
         </dl>
       </li>
       <li class="layui-nav-item"><a href="/user/logout">退出</a></li>

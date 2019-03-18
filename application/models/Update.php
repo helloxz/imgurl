@@ -81,6 +81,17 @@
                 return FALSE;
             }
         }
+        //更新密码
+        public function password($values){
+            $sql = "UPDATE img_options SET `values` = '{$values}' WHERE `name` = 'userinfo'";
+            $query = $this->db->query($sql);
+            if($query){
+                return TRUE;
+            }
+            else{
+                return FALSE;
+            }
+        }
         
     }
 ?>

@@ -7,7 +7,7 @@
         <div class="layui-btn-group"> 
             <a href="/" class="layui-btn">返回首页</a>
             <a href="/user/login" class="layui-btn">登录后台</a>
-            <a class="layui-btn" href="https://doc.xiaoz.me/#/imgurl/">查看帮助文档</a>
+            <a class="layui-btn" href="https://doc.xiaoz.me/#/imgurl2/">查看帮助文档</a>
             <a class="layui-btn" href="https://dwz.ovh/imgurl" rel = "nofollow" target = "_blank">打赏支持</a> 
         </div>
         </div>

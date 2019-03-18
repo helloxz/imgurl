@@ -87,7 +87,7 @@
             //imagick
             $env['imagick'] = array(
                 "name"      =>  'ImageMagick',
-                "requir"    =>  '必须支持',
+                "requir"    =>  '可选',
                 "info"      =>  array_search('imagick',$ext) ? 'Yes':'No',
                 "result"    =>  array_search('imagick',$ext) ? $yes : $no
             );
@@ -116,8 +116,11 @@
             if($type == 'part'){
                 //检测不通过
                 foreach($env as $value){
-                    //echo $value['result'];
-                    if($value['result'] == $no){
+                    //当检测到ImageMagick的时候直接让其通过
+                    if($value['name'] == 'ImageMagick'){
+                        
+                    }
+                    elseif($value['result'] == $no){
                         return FALSE;
                         exit;
                     }
@@ -264,10 +267,6 @@
                 header("location:/");
                 exit;
             }
-        }
-        public function test(){
-            echo $this->get_domain();
-            
         }
     }
 ?>

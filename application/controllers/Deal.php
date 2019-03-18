@@ -195,5 +195,47 @@
             $arr = json_encode($arr);
             echo $arr;
         }
+        //重置密码
+        public function resetpass(){
+            $password1 = $this->input->post('password1', TRUE);
+            $password2 = $this->input->post('password2', TRUE);
+            //验证文件路径
+            $pass_txt = FCPATH."data/password.txt";
+            if(!file_exists($pass_txt)){
+                $this->err_msg("没有权限，请参考帮助文档操作！");
+            }
+            else{
+                $pattern = '/^[a-zA-Z0-9!@#$%^&*.]+$/';
+                if($password1 != $password2){
+                    $this->err_msg("两次密码不一致！");
+                }
+                else if(!preg_match($pattern,$password2)){
+                    $this->err_msg("密码格式有误！");
+                    exit;
+                }
+                else{
+                    //进行密码重置
+                    $password = md5($password2.'imgurl');
+                    
+                    //加载数据库模型
+                    $this->load->model('query','',TRUE);
+                    $this->load->model('update','',TRUE);
+                    //查询用户信息
+                    $userinfo = $this->query->userinfo()->values;
+                    $userinfo = json_decode($userinfo);
+                    $userinfo->password = $password;
+                    $values = json_encode($userinfo);
+                    //更新数据库
+                    if($this->update->password($values)){
+                        //删除验证文件
+                        unlink($pass_txt);
+                        $this->suc_msg("密码已重置，请重新登录。");
+                    }
+                    else{
+                        $this->err_msg("更新失败，未知错误！");
+                    }
+                }
+            }
+        }
     }
 ?>

@@ -3,6 +3,13 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
 
     class Image{
+        protected $CI;
+
+        //构造函数
+        public function __construct(){
+            //附属类，让其可以访问CI的资源
+            $this->CI = & get_instance();
+        }
         public function thumbnail($source,$width,$height){
             //获取缩略图名称
             $source = str_replace("\\","/",$source);
@@ -23,19 +30,48 @@
             $dirname = dirname($source);    //获取的路径最后没有/
             //缩略图完整路径
             $thumbnail_full = $dirname.'/'.$thumbnail_name;
-            $image = new Imagick($source);
             // 创建缩略图
             //原图宽高大于缩略图
             if(($img_w > $width) || ($img_h > $height)){
-                //$image->setImageCompressionQuality(90);
-                $image->cropThumbnailImage( $width, $height );
+                //检测是否支持ImageMagick
+                if($this->check()){
+                    //使用ImageMagick裁剪图像
+                    $image = new Imagick($source);
+                    $image->cropThumbnailImage( $width, $height );
+                    //将缩略图输出到文件
+                    $image->writeImage( $thumbnail_full );
+                    //清理工作
+                    $image->clear();
+                }
+                //不支持ImageMagick，使用GD2进行裁剪
+                else{
+                    //配置裁剪参数，参考：https://codeigniter.org.cn/user_guide/libraries/image_lib.html
+                    $config['image_library'] = 'gd2';
+                    $config['source_image'] = $source;
+                    $config['create_thumb'] = TRUE;
+                    $config['maintain_ratio'] = TRUE;
+                    $config['width']     = $width;
+                    $config['height']   = $height;
+                    $this->CI->load->library('image_lib', $config);
+                    $this->CI->image_lib->resize();
+                }
+                
             }
             
-            //将缩略图输出到文件
-            $image->writeImage( $thumbnail_full );
             
-            //清理工作
-            $image->clear();
+            
+            
+        }
+        //检测是否支持ImageMagick
+        protected function check(){
+            $ext = get_loaded_extensions();
+            //如果已经安装ImageMagick
+            if(array_search('imagick',$ext)){
+                return TRUE;
+            }
+            else{
+                return FALSE;
+            }
         }
         //压缩图片
         public function compress($source){

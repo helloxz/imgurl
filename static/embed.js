@@ -18,7 +18,9 @@ layui.use(['upload','form','element','layer','flow'], function(){
         var storage = $('#storage input[name="storage"]:checked ').val();
 		//图片懒加载
 		var flow = layui.flow;
-		flow.lazyimg();
+		flow.lazyimg({
+            elem:'#found img'
+        });
         //图片查看器
         layer.photos({
             photos: '#found'
@@ -213,4 +215,19 @@ function identify(id){
             console.log(re.code);
         }
     });
+}
+//重置密码
+function resetpass(){
+    var password1 = $("#password1").val();
+    var password2 = $("#password2").val();
+
+    if(password1 != password2){
+        layer.msg("两次密码不一致！");
+    }
+    else if(password1 == password2){
+        $.post("/deal/resetpass",{password1:password1,password2:password2},function(data,status){
+            var re = JSON.parse(data);
+            layer.msg(re.msg);
+        });
+    }
 }

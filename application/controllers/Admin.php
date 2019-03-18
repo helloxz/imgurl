@@ -9,11 +9,14 @@
             $this->load->model('query','',TRUE);
             //加载辅助函数
             $this->load->helper('basic');
+            //加载常用类
+            $this->load->library('basic');
             $info = $this->query->userinfo()->values;
             $info = json_decode($info);
 
             //验证用户是否登录
-            is_login($info->username,$info->password);
+            $this->basic->is_login(TRUE);
+            //is_login($info->username,$info->password);
         }
         //后台首页
         public function index(){

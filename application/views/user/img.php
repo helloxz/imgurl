@@ -22,7 +22,15 @@
                 </div>
                 <!-- 评论按钮 -->
                 <div id="comments">
-                    
+                    <!--存在评论就加载  -->
+                    <?php
+                        //评论代码路径
+                        $com_file = FCPATH.'application/views/user/comment.html';
+                        if(file_exists($com_file)){
+                            $comment = file_get_contents($com_file);
+                            echo $comment;
+                        }
+                    ?>
                 </div>
                 <!-- 评论按钮END -->
             </div>
