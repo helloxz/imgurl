@@ -54,13 +54,12 @@
                     $config['height']   = $height;
                     $this->CI->load->library('image_lib', $config);
                     $this->CI->image_lib->resize();
-                }
-                
+                }  
             }
-            
-            
-            
-            
+            //图片像素太小了，不创建缩略图
+            else{
+                return FALSE;
+            }  
         }
         //检测是否支持ImageMagick
         protected function check(){

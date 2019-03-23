@@ -539,3 +539,15 @@ body{
     margin-bottom:20px;
     color:#FFFFFF;
 }
+/* 分页CSS样式 */
+#paging .paging{
+    padding:0.6em;
+    background: #eeeeee;
+    margin-right: 0.5em;
+}
+#paging strong{
+    padding:0.6em;
+    background: #5FB878;
+    margin-right: 0.5em;
+    color:#FFFFFF;
+}

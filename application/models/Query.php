@@ -237,6 +237,23 @@
                 case 'month':
                     $sql = "SELECT count(*) AS num FROM `img_images` WHERE date LIKE strftime('%Y-%m','now') || '%'";
                     break;
+                case 'gif':
+                    $sql = "SELECT count(*) AS num FROM (SELECT a.id,b.ext FROM img_images a INNER JOIN img_imginfo b ON a.imgid = b.imgid AND a.user = 'visitor' AND b.ext = '.gif')";
+                    break;
+                case 'large':
+                    $sql = "SELECT count(*) AS num FROM
+                    (
+                        SELECT a.id,a.imgid,a.path,a.thumb_path,a.date,a.compression,a.level,b.mime,b.width,b.height,b.views,b.ext,b.client_name 
+                        FROM img_images 
+                        AS a INNER JOIN img_imginfo AS b 
+                        ON a.imgid = b.imgid 
+                        AND a.user = 'visitor' 
+                        AND a.level = 'everyone' 
+                        AND b.width >= 1920 
+                        AND b.height >= 1080 
+                        ORDER BY a.id DESC
+                    )";
+                    break;
                 default:
                     # code...
                     break;

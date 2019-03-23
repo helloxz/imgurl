@@ -2,15 +2,18 @@
     // 很无奈的将逻辑写到这里
     // 写一个获取缩略图的函数
     $this->load->helper('basic');
+    //载入常用类
+    //$this->load->library('basic');
 ?>
-<div class="layui-container" style = "margin-top:2em;margin-bottom:6em;">
+<div class="layui-container" style = "margin-top:1em;margin-bottom:6em;">
     <div class="layui-row">
-        <div class="layui-col-lg12">
-        <!-- <div class="layui-btn-group">
-            <button class="layui-btn layui-btn-sm"> 默认</button>
-            <button class="layui-btn layui-btn-sm">浏览量</button>
-            <button class="layui-btn layui-btn-sm">高清</button>
-        </div> -->
+        <div class="layui-col-lg12" style = "margin-bottom:1em;">
+        <div class="layui-btn-group">
+            <a href="/found/all/0" class="layui-btn layui-btn-sm">默认</a>
+            <a href="/found/gif/0" class="layui-btn layui-btn-sm">GIF动图</a>
+            <a href="/found/views/0" class="layui-btn layui-btn-sm">浏览量</a>
+            <a href="/found/large/0" class="layui-btn layui-btn-sm">大图</a>
+        </div>
         </div>
     </div>
     <div class="layui-row layui-col-space5" id = "found">
@@ -31,6 +34,15 @@
                         <!-- 图片链接 -->
                         <a href="javascript:;" title="图片链接" class="layui-btn layui-btn-xs layui-btn-normal" onclick = "showlink('<?php echo $img_url; ?>','<?php echo $thumburl; ?>')"><i class="fa fa-link"></i></a>
                         <a href="/img/<?php echo $img['imgid']; ?>" target = "_blank" class="layui-btn layui-btn-xs layui-btn-normal"><i class="fa fa-globe"></i></a>
+                        <!-- 用户已登录才显示删除按钮 -->
+                        <?php
+                            if($is_login){
+                        ?>
+                        <button class="layui-btn  layui-btn-xs layui-btn-danger" title = "删除这张图片" onclick = "del_img('<?php echo $img['id']; ?>','<?php echo $img['imgid'] ?>','<?php echo $img['path']; ?>','<?php echo $thumbpath; ?>')">
+                            <i class="fa fa-trash-o"></i>
+                        </button> 
+                        <?php } ?>
+                        <!-- 删除按钮end -->
                     </div>
                 </div>
             </div>
@@ -38,7 +50,16 @@
             } 
         ?>
     </div>
+        
+    <!-- 分页按钮 -->
+    <div class="layui-row" style = "margin-top:2em;margin-bottom:5em;">
+        <div class="layui-col-lg6" id = "paging">
+            <?php echo $page; ?>
+        </div>
+    </div>
+    <!-- 分页按钮 -->
 </div>
+<!-- 这个div是container结束那部分 -->
 
 <div class="layui-row" id = "imglink">
 <div class="layui-col-lg10 layui-col-md-offset1">

@@ -84,7 +84,7 @@
             case 'image/jpeg':
                 return '.jpg';
                 break;
-            case 'image/bmp':
+            case 'image/x-ms-bmp':
                 return '.bmp';
                 break;
             case 'image/webp':

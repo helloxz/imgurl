@@ -231,3 +231,20 @@ function resetpass(){
         });
     }
 }
+//删除单张图片
+function del_img(id,imgid,path,thumbnail_path){
+	layer.confirm('确认删除这张图片？', {icon: 3, title:'温馨提示！'}, function(index){
+        $.post("/set/del_img",{imgid:imgid,path:path,thumbnail_path:thumbnail_path},function(data,status){
+			var re = JSON.parse(data);
+            if(re.code == 200) {
+                $("#img"+id).remove();
+                console.log("#img"+id);
+            }
+            else{
+                layer.msg(data);
+            }
+        });
+    
+    layer.close(index);
+    });
+}

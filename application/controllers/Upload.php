@@ -114,7 +114,17 @@
                 
                 //生成缩略图
                 $this->load->library('image');
-                $this->image->thumbnail($full_path,290,175); 
+                if(!$this->image->thumbnail($full_path,290,175)){
+                    //像素太小就不生产缩略图
+                    $thumbnail_url = $domain.$relative_path;
+                }
+
+                //CI获取获取.bmp 图片的像素，认为.bmp不是图像类型，改用其它方法获取像素
+                if($data['file_type'] == 'image/x-ms-bmp'){
+                    $tmpinfo = getimagesize($full_path);
+                    $data['image_width'] = $tmpinfo[0];
+                    $data['image_height'] = $tmpinfo[1];
+                }
                 
                 //查询图片是否上传过
                 if($imginfo = $this->query->repeat($imgid)){
