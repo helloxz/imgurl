@@ -277,10 +277,51 @@
             //先获取img id
             $sql = "SELECT a.*,b.mime,b.width,b.height,b.views,b.ext,b.client_name FROM img_images AS a INNER JOIN img_imginfo AS b ON a.id = $id AND a.imgid = b.imgid";
             $imginfo = $this->db->query($sql)->row();
-            
-
             return $imginfo;
-
+        }
+        //各种条件的图片查询
+        public function found_img($type,$page){
+            //探索发现每页显示16张图片
+            $limit = 16;
+            //通用的SQL语句头部
+            $sql_header = "SELECT a.id,a.imgid,a.path,a.thumb_path,a.date,a.compression,a.level,b.mime,b.width,b.height,b.views,b.ext,b.client_name 
+            FROM img_images AS a 
+            INNER JOIN img_imginfo AS b 
+            ON a.imgid = b.imgid 
+            AND a.user = 'visitor' 
+            AND (a.level = 'everyone' OR a.level = 'unknown') ";
+            //根据条件生成不同的SQL语句
+            switch($type){
+                case 'all':
+                    //查询游客上传图片总数
+                    $num = $this->count_num('visitor')->num;
+                    //$config['base_url'] = "/found/all/";
+                    $sql = $sql_header."ORDER BY a.id DESC LIMIT $limit OFFSET $page";
+                    break;
+                case 'gif':
+                    $num = $this->count_num('gif')->num;
+                    //$config['base_url'] = "/found/gif/";
+                    $sql = $sql_header."AND b.ext = '.gif' ORDER BY a.id DESC LIMIT $limit OFFSET $page";
+                    break;
+                case 'views':
+                    $num = $this->count_num('visitor')->num;
+                    //$config['base_url'] = "/found/views/";
+                    $sql = $sql_header."ORDER BY b.views DESC LIMIT $limit OFFSET $page";
+                    break;
+                case 'large':
+                    $num = $this->count_num('large')->num;
+                    //$config['base_url'] = "/found/large/";
+                    $sql = $sql_header."AND b.width >= 1920 AND b.height >= 1080 ORDER BY a.id DESC LIMIT $limit OFFSET $page";
+                    break;
+                default:
+                    //查询游客上传图片总数
+                    $num = $this->count_num('visitor')->num;
+                    //$config['base_url'] = "/found/all/";
+                    $sql = $sql_header."ORDER BY a.id DESC LIMIT $limit OFFSET $page";
+                    break;
+            }
+            $datas = $this->db->query($sql)->result_array();
+            return $datas;
         }
     }
 ?>

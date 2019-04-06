@@ -29,45 +29,33 @@
             $siteinfo = $this->query->site_setting();
             $siteinfo = $siteinfo->values;
             $siteinfo = json_decode($siteinfo);
-            //每页显示16张图片
-            $limit = 16;
+            
             //echo $page;
             $siteinfo->title = '探索发现 - '.$siteinfo->title;
-            //SQL语句
-            $sql_header = "SELECT a.id,a.imgid,a.path,a.thumb_path,a.date,a.compression,a.level,b.mime,b.width,b.height,b.views,b.ext,b.client_name FROM img_images AS a INNER JOIN img_imginfo AS b ON a.imgid = b.imgid AND a.user = 'visitor' AND a.level = 'everyone' ";
+            
             //根据条件生成不同的SQL语句
             switch($type){
                 case 'all':
                     //查询游客上传图片总数
-                    $num = $this->query->count_num('visitor')->num;
                     $config['base_url'] = "/found/all/";
-                    $sql = $sql_header."ORDER BY a.id DESC LIMIT $limit OFFSET $page";
                     break;
                 case 'gif':
-                    $num = $this->query->count_num('gif')->num;
                     $config['base_url'] = "/found/gif/";
-                    $sql = $sql_header."AND b.ext = '.gif' ORDER BY a.id DESC LIMIT $limit OFFSET $page";
                     break;
-                case 'views':
-                    $num = $this->query->count_num('visitor')->num;
+                case 'views':   
                     $config['base_url'] = "/found/views/";
-                    $sql = $sql_header."ORDER BY b.views DESC LIMIT $limit OFFSET $page";
                     break;
                 case 'large':
-                    $num = $this->query->count_num('large')->num;
                     $config['base_url'] = "/found/large/";
-                    $sql = $sql_header."AND b.width >= 1920 AND b.height >= 1080 ORDER BY a.id DESC LIMIT $limit OFFSET $page";
                     break;
                 default:
-                    //查询游客上传图片总数
-                    $num = $this->query->count_num('visitor')->num;
                     $config['base_url'] = "/found/all/";
-                    $sql = $sql_header."ORDER BY a.id DESC LIMIT $limit OFFSET $page";
                     break;
             }
             //查询图片信息,返回对象
             //$data['imgs'] = $this->query->found(96);
-            $data['imgs'] = $this->db->query($sql)->result_array();
+            //$data['imgs'] = $this->db->query($sql)->result_array();
+            $data['imgs'] = $this->query->found_img($type,$page);
             //查询域名
             $data['domain'] = $this->query->domain('localhost');
             

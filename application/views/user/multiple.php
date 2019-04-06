@@ -20,31 +20,34 @@
         <!-- 多图上传结果 -->
         <div class="layui-col-lg12" id = "multiple-re">
             <div class="layui-tab layui-tab-brief">
-            <ul class="layui-tab-title">
-                <li class="layui-this">URL</li>
-                <li>HTML</li>
-                <li>Markdown</li>
-                <li>BBCode</li>
-            </ul>
-            <div class="layui-tab-content" style="height: 100px;">
-                <!-- 第一个选显卡结果 -->
-                <div class="layui-tab-item layui-show" id = "re-url">
-                    <pre></pre>
-                </div>
-                <!-- 返回HTML结果 -->
-                <div class="layui-tab-item" id = "re-html">
-                    <pre></pre>
-                </div>
-                <!-- 返回Markdown结果 -->
-                <div class="layui-tab-item" id = "re-md">
-                    <pre></pre>
-                </div>
-                <!-- 返回BBCode结果 -->
-                <div class="layui-tab-item" id = "re-bbc">
-                    <pre></pre>
+                <ul class="layui-tab-title">
+                    <li class="layui-this">URL</li>
+                    <li>HTML</li>
+                    <li>Markdown</li>
+                    <li>BBCode</li>
+                </ul>
+                <div class="layui-tab-content" style="height: 100px;">
+                    <!-- 第一个选显卡结果 -->
+                    <div class="layui-tab-item layui-show" id = "re-url">
+                        <pre></pre>
+                    </div>
+                    <!-- 返回HTML结果 -->
+                    <div class="layui-tab-item" id = "re-html">
+                        <pre></pre>
+                    </div>
+                    <!-- 返回Markdown结果 -->
+                    <div class="layui-tab-item" id = "re-md">
+                        <pre></pre>
+                    </div>
+                    <!-- 返回BBCode结果 -->
+                    <div class="layui-tab-item" id = "re-bbc">
+                        <pre></pre>
+                    </div>
                 </div>
             </div>
-            </div>
+            <!-- 导出txt按钮 -->
+            <!-- <a href="" class="layui-btn layui-btn-sm"><i class="layui-icon layui-icon-download-circle"></i> 导出txt</a> -->
+            <!-- 导出txt按钮end -->
         </div>
         <!-- 多图上传结果END -->
         <!-- 首页主要区域END -->
