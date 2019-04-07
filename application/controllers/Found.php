@@ -29,7 +29,8 @@
             $siteinfo = $this->query->site_setting();
             $siteinfo = $siteinfo->values;
             $siteinfo = json_decode($siteinfo);
-            
+            //每页显示16张图片
+            $limit = 16;
             //echo $page;
             $siteinfo->title = '探索发现 - '.$siteinfo->title;
             
@@ -37,18 +38,23 @@
             switch($type){
                 case 'all':
                     //查询游客上传图片总数
+                    $num = $this->query->count_num('visitor')->num;
                     $config['base_url'] = "/found/all/";
                     break;
                 case 'gif':
+                    $num = $this->query->count_num('gif')->num;
                     $config['base_url'] = "/found/gif/";
                     break;
-                case 'views':   
+                case 'views':  
+                    $num = $this->query->count_num('visitor')->num;
                     $config['base_url'] = "/found/views/";
                     break;
                 case 'large':
+                    $num = $this->query->count_num('large')->num;
                     $config['base_url'] = "/found/large/";
                     break;
                 default:
+                    $num = $this->query->count_num('visitor')->num;
                     $config['base_url'] = "/found/all/";
                     break;
             }
