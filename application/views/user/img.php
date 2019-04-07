@@ -17,7 +17,7 @@
                         <span><a href="<?php echo $url; ?>" download = ""><i class="fa fa-cloud-download"></i> 下载</a></span>
                     </p>
                     <div class = "statement">
-                    <i class="fa fa-warning"></i> 此图片来自网友上传，不代表本站立场，若有侵权，请联系管理员删除！（QQ:337003006）
+                    <i class="fa fa-warning"></i> <?php echo $img_info; ?>
                     </div>
                 </div>
                 <!-- 评论按钮 -->

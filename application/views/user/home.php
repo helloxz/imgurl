@@ -5,7 +5,7 @@
             <div id="main">
                 <div class="alert alert-warning" role="alert">
                     <span class="alert-inner--icon"><i class="layui-icon"></i></span>
-                    <span class="alert-inner--text"><strong>注意：</strong>游客限制每日上传10张，单张图片不能超过5M，上传的图片将公开显示，使用之前请先阅读《<a href="/page/use">使用协议</a>》</span>
+                    <span class="alert-inner--text"><strong>注意：</strong><?php echo $info; ?></span>
                 </div>
                 <!-- 选择按钮 -->
                 <!-- 上传地址 -->

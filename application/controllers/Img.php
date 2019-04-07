@@ -7,7 +7,12 @@
             $this->load->model('query','',TRUE);
             $siteinfo = $this->query->site_setting();
             $siteinfo = json_decode($siteinfo->values);
-
+            
+            //加载常用基本类库
+            $this->load->library("basic");
+            //获取配置文件信息的内容
+            $conf = $this->basic->conf("info");
+            //var_dump($conf->img_info);
             //过滤imgid
             $imgid = strip_tags($imgid);
             //计算imgid长度
@@ -60,6 +65,7 @@
                 "size"          =>  $size
             );
 
+            $datas['img_info'] = $conf->img_info;
             // $data['title']  =   '图片浏览';
             // $data['url']    =   $domain.$imginfo->path;
             // $data['date']   =   $imginfo->date;

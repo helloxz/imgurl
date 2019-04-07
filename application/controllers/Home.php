@@ -21,11 +21,17 @@
             //加载数据库模型
             $this->load->model('query','',TRUE);
             $siteinfo = $this->query->site_setting();
+            //读取配置文件内容
+            $this->load->library("basic");
+            $conf = $this->basic->conf("info");
+            
+            
             $siteinfo = json_decode($siteinfo->values);
+            $siteinfo->info = $conf->index_info;
             //echo $siteinfo->title;
             //$data['title']  =   '图片上传';
             $this->load->view('user/header.php',$siteinfo);
-            $this->load->view('user/home.php');
+            $this->load->view('user/home.php',$siteinfo);
             $this->load->view('user/footer.php');
         }
         //首页多图上传

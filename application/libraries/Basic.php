@@ -106,5 +106,33 @@
 
             return $data;
         }
+        //读取站点配置文件
+        public function conf($arg = ''){
+            //检查配置文件是否存在，并读取对应内容
+            if(is_file(FCPATH."data/json/config.js")){
+                $conf_path = FCPATH."data/json/config.js";
+            }
+            //配置文件不存在，读取默认配置
+            else{
+                $conf_path = FCPATH."data/json/config.simple.js";
+            }
+            $conf_path = str_replace("\\","/",$conf_path);
+            //echo $conf_path;
+            //读取配置文件内容
+            $content = json_decode(file_get_contents($conf_path));
+            
+            //根据传入的参数来返回不同的数据
+            switch ($arg) {
+                case 'alert':
+                    return $content->alert;
+                    break;
+                case 'info':
+                    return $content->info;
+                    break;
+                default:
+                    return $content;
+                    break;
+            }
+        }
     }
 ?>
