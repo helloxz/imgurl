@@ -107,6 +107,5 @@
             
             $this->load->view('user/footer');
         }
-        
     }
 ?>

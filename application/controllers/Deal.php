@@ -105,6 +105,8 @@
         }
         //图片鉴黄识别
         public function identify($id){
+            //允许跨域访问
+            header("Access-Control-Allow-Origin: *");
             $id = (int)$id;
             //生成SQL语句
             $sql = "SELECT a.id,a.path,a.level,b.domains FROM img_images AS a INNER JOIN img_storage AS b ON b.engine = 'localhost' AND a.id = $id";
