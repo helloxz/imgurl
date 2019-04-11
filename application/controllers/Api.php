@@ -3,7 +3,7 @@
 
     class Api extends CI_Controller{
         //获取图片数据
-        public function images($type = 'all'){
+        public function found($type = 'all'){
             //允许跨域访问
             header("Access-Control-Allow-Origin: *");
             //返回json类型

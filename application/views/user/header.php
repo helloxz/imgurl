@@ -42,6 +42,7 @@
                         <ul class="layui-nav" lay-filter="">
                             <li class="layui-nav-item"><a href="/home/multiple"><i class="layui-icon layui-icon-upload"></i> 多图上传</a></li>
                             <li class="layui-nav-item"><a href="/found"><i class="layui-icon layui-icon-search"></i> 探索发现</a></li>
+                            <li class="layui-nav-item"><a href="/page/api"><i class="layui-icon layui-icon-template-1"></i> API</a></li>
                             <li class="layui-nav-item"><a href="https://doc.xiaoz.me/#/imgurl2/" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe705;</i> 帮助文档</a></li>
                             <li class="layui-nav-item"><a href="https://github.com/helloxz/imgurl" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe635;</i> 源码</a></li>
                             <li class="layui-nav-item"><a href="/page/use"><i class="layui-icon">&#xe60b;</i> 关于</a></li>
