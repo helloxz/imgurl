@@ -42,6 +42,7 @@
                     $image->writeImage( $thumbnail_full );
                     //清理工作
                     $image->clear();
+                    return TRUE;
                 }
                 //不支持ImageMagick，使用GD2进行裁剪
                 else{
@@ -54,6 +55,7 @@
                     $config['height']   = $height;
                     $this->CI->load->library('image_lib', $config);
                     $this->CI->image_lib->resize();
+                    return TRUE;
                 }  
             }
             //图片像素太小了，不创建缩略图

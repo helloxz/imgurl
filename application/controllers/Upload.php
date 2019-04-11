@@ -4,6 +4,9 @@
     author:xiaoz.me
     QQ:337003006
     */
+
+    //允许跨域请求
+    header("Access-Control-Allow-Origin: *");
     defined('BASEPATH') OR exit('No direct script access allowed');
 
     class Upload extends CI_Controller{
@@ -68,7 +71,7 @@
             $config['encrypt_name']    = TRUE;         //随机命名图片
             return $config;
         }
-        public function localhost(){
+        public function localhost($type = 'json'){
             //加载上传的配置选项
             $config = $this->config();
             //加载上传类
@@ -140,7 +143,9 @@
                         "width"             =>  $data['image_width'],
                         "height"            =>  $data['image_height']
                     );
-                    $this->succeed_msg($info);
+                    //$this->succeed_msg($info);
+                    //根据不同的类型返回不同的数据
+                    $this->re_data($type,$info);
                 }
                 //图片没有上传过
                 else{
@@ -180,10 +185,33 @@
                         "width"             =>  $data['image_width'],
                         "height"            =>  $data['image_height']
                     );
+                    //根据不同的类型返回不同的数据
+                    $this->re_data($type,$info);
                 }
-                //var_dump($info);
-                //exit;
-                $this->succeed_msg($info);
+            }
+        }
+        //根据不同的类型返回不同的数据
+        protected function re_data($type,$info){
+            $url = $info['url'];
+            switch ($type) {
+                case 'json':
+                    $this->succeed_msg($info);
+                    break;
+                case 'url':
+                    echo $url;
+                    break;
+                case 'html':
+                    echo "<img src = '$url' />";
+                    break;
+                case 'markdown':
+                    echo "![]($url)";
+                    break;
+                case 'bbcode':
+                    echo "[img]".$url."[/img]";
+                    break;
+                default:
+                    $this->succeed_msg($info);
+                    break;
             }
         }
         //上传成功返回json

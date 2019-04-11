@@ -52,4 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+//API路由
 $route['api/upload'] = 'upload/localhost';
+$route['api/upload/(:any)'] = 'upload/localhost/$1';
