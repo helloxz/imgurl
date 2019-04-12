@@ -54,4 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 //API路由
 $route['api/upload'] = 'upload/localhost';
+$route['api/upload/parse'] = 'upload/parse';
 $route['api/upload/(:any)'] = 'upload/localhost/$1';
