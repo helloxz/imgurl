@@ -551,3 +551,17 @@ body{
     margin-right: 0.5em;
     color:#FFFFFF;
 }
+.timeline h1, h2, h3, h4, h5, h6 ,p,li{
+    color:#FFFFFF;
+}
+.layui-text h3 {
+    font-weight: 500;
+    color: #FFFFFF;
+}
+#timeline{
+    margin-top:1.5em;
+    margin-bottom: 3.5em;
+    padding-left:1em;
+    padding-top:1em;
+    background-color:rgba(0,0,0,0.5);
+}

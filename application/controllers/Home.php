@@ -46,5 +46,17 @@
             $this->load->view('user/multiple.php');
             $this->load->view('user/footer.php');
         }
+        //更新日志
+        public function log(){
+            //加载数据库模型
+            $this->load->model('query','',TRUE);
+            $siteinfo = $this->query->site_setting();
+            $siteinfo = json_decode($siteinfo->values);
+            //echo $siteinfo->title;
+            //$data['title']  =   '图片上传';
+            $this->load->view('user/header.php',$siteinfo);
+            $this->load->view('user/log.php');
+            $this->load->view('user/footer.php');
+        }
     }
 ?>
