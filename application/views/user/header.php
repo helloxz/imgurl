@@ -54,9 +54,9 @@
                             <!-- 简单判断用户是否登录END -->
                         </ul>
                     </div>
-                    <div class = "layui-hide-lg layui-hide-xs">
-                        <ul class="layui-nav menu" lay-filter="">
-                            <li class="layui-nav-item"><a href="found.php">探索发现</a></li>
+                    <div class = "menu layui-hide-lg layui-hide-md layui-hide-sm">
+                        <ul class="layui-nav" lay-filter="">
+                            <li class="layui-nav-item"><a href="/found"><i class="layui-icon layui-icon-search"></i> 探索发现</a></li>
                         </ul>
                     </div>
                 </div>
