@@ -35,7 +35,7 @@
                 $username = $userinfo->username;
                 $password = $userinfo->password;
                 //echo get_ip();
-                $password = $username.$password.get_ip().get_ua();
+                $password = $username.$password.get_ua();
                 $password = md5($password);
 
 
