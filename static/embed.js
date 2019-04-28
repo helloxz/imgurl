@@ -41,6 +41,8 @@ layui.use(['upload','form','element','layer','flow'], function(){
                 //this.url = '/upload/' + storage;
                 //console.log(this.url);
             }
+            ,accept:'file'
+            ,acceptMime:'image/webp,image/jpeg,image/pjpeg,image/bmp,image/png,image/x-png,image/gif'
             ,size:5120
             ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
                 layer.load(); //上传loading

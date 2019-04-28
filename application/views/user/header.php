@@ -6,7 +6,7 @@
     }
 ?>
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="utf-8" />
 	<title><?php echo @$title; ?></title>

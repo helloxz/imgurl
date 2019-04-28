@@ -32,7 +32,14 @@
             //每页显示16张图片
             $limit = 16;
             //echo $page;
-            $siteinfo->title = '探索发现 - '.$siteinfo->title;
+            //设置页面标题
+            if($page == 0){
+                $siteinfo->title = $siteinfo->title.'，探索发现';
+            }
+            else{
+                $siteinfo->title = $siteinfo->title.'，探索发现 - '."第{$page}页";
+            }
+            
             
             //根据条件生成不同的SQL语句
             switch($type){
@@ -82,6 +89,7 @@
             $this->pagination->initialize($config);
             $data['page'] = $this->pagination->create_links();
 
+            //设置标题
             //加载视图
             $this->load->view('user/header',$siteinfo);
             $this->load->view('user/found',$data);

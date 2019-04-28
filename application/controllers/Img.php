@@ -31,6 +31,7 @@
             $imginfo = $this->query->onepic($imgid);
             //查询的img_imginfo
             $picinfo = $this->query->imginfo($imgid);
+            $siteinfo->description = $picinfo->client_name.",由网友上传至ImgURL图床。";
             //查询图片域名
             @$domain = $this->query->domain($imginfo->storage);
 

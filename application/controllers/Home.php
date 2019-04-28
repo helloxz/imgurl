@@ -54,9 +54,27 @@
             $siteinfo = json_decode($siteinfo->values);
             //echo $siteinfo->title;
             //$data['title']  =   '图片上传';
+            $siteinfo->title = "ImgURL更新日志";
             $this->load->view('user/header.php',$siteinfo);
             $this->load->view('user/log.php');
             $this->load->view('user/footer.php');
+        }
+        //站点地图页面
+        public function sitemap(){
+            //页面路径
+            $page_path = FCPATH.'data/pages';
+            $pages = scandir($page_path);
+            
+            foreach ($pages as $page) {
+                if(($page === '.') OR ($page === '..')){
+                    continue;
+                }
+                $page = str_replace('.md','',$page);
+                echo "<li><a href = '/page/{$page}'>{$page}</a></li>";
+            }
+            
+            //加载数据库模型
+            $this->load->view('user/sitemap.php');
         }
     }
 ?>

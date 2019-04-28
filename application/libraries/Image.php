@@ -20,6 +20,8 @@
             $img_w = $imginfo[0];
             //图片高
             $img_h = $imginfo[1];
+            //图片MIME类型
+            $mime = $imginfo['mime'];
             //获取源文件名
             $filename = end($imgarr);
             $imgname = explode(".",$filename);
@@ -33,8 +35,12 @@
             // 创建缩略图
             //原图宽高大于缩略图
             if(($img_w > $width) || ($img_h > $height)){
+                //如果是WEBP则不裁剪
+                if($mime === 'image/webp'){
+                    return FALSE;
+                }
                 //检测是否支持ImageMagick
-                if($this->check()){
+                elseif($this->check()){
                     //使用ImageMagick裁剪图像
                     $image = new Imagick($source);
                     $image->cropThumbnailImage( $width, $height );
