@@ -35,8 +35,8 @@
             // 创建缩略图
             //原图宽高大于缩略图
             if(($img_w > $width) || ($img_h > $height)){
-                //如果是WEBP则不裁剪
-                if($mime === 'image/webp'){
+                //如果是WEBP/SVG则不裁剪
+                if(($mime === 'image/webp') OR ($mime === 'image/svg+xml')){
                     return FALSE;
                 }
                 //检测是否支持ImageMagick

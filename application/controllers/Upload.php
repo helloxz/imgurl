@@ -65,6 +65,7 @@
             // var_dump();
             $config['upload_path']      = $upload_path;
             $config['allowed_types']    = 'gif|jpg|jpeg|png|bmp|webp';
+            //$config['allowed_types']    = 'image/jpeg|image/png|image/gif|image/bmp|image/x-ms-bmp|image/webp';
             $config['max_size']     = 5120;
             $config['file_ext_tolower'] = TRUE; //文件名转换为小写
             $config['overwrite'] = TRUE;        //覆盖同名文件
@@ -123,10 +124,15 @@
                 }
 
                 //CI获取获取.bmp 图片的像素，认为.bmp不是图像类型，改用其它方法获取像素
-                if(($data['file_type'] == 'image/x-ms-bmp') OR ($data['file_type'] == 'image/webp')){
+                if( $data['file_type'] === 'image/x-ms-bmp' ){
                     $tmpinfo = getimagesize($full_path);
                     $data['image_width'] = $tmpinfo[0];
                     $data['image_height'] = $tmpinfo[1];
+                }
+                //webp的图片暂时无法获取宽高，则设置为0
+                if($data['file_type'] === 'image/webp'){
+                    $data['image_width'] = 0;
+                    $data['image_height'] = 0;
                 }
                 
                 //查询图片是否上传过

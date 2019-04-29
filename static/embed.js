@@ -43,6 +43,7 @@ layui.use(['upload','form','element','layer','flow'], function(){
             }
             ,accept:'file'
             ,acceptMime:'image/webp,image/jpeg,image/pjpeg,image/bmp,image/png,image/x-png,image/gif'
+            ,exts: 'jpg|jpeg|png|gif|bmp|webp'
             ,size:5120
             ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
                 layer.load(); //上传loading
@@ -82,6 +83,9 @@ layui.use(['upload','form','element','layer','flow'], function(){
         upload.render({
             elem: '#multiple'
             ,url: '/upload/localhost'
+            ,accept:'file'
+            ,acceptMime:'image/webp,image/jpeg,image/pjpeg,image/bmp,image/png,image/x-png,image/gif'
+            ,exts: 'jpg|jpeg|png|gif|bmp|webp'
             ,multiple:true
             ,size:5120
             ,number:5     //可同时上传数量

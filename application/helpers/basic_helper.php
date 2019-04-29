@@ -62,7 +62,9 @@
             case 'image/png':
             case 'image/jpeg':
             case 'image/bmp':
+            case 'image/x-ms-bmp':
             case 'image/webp':
+            case 'image/svg+xml':
                 return TRUE;
                 break;		
             default:
