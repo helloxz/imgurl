@@ -1,7 +1,22 @@
-layui.use(['form','element','layer'], function(){
+layui.use(['form','element','layer','laydate'], function(){
     var form = layui.form;
 	var element = layui.element;
 	var layer = layui.layer;
+	var laydate = layui.laydate;
+
+	//执行一个laydate实例
+	laydate.render({
+		elem: '#start-time' //指定元素
+		,done: function(value, date, endDate){
+			start_time = value;
+		}
+	});
+	laydate.render({
+		elem: '#end-time' //指定元素
+		,done: function(value, date, endDate){
+			end_time = value;
+		}
+	});
     
     //监听提交
     // form.on('submit(formDemo)', function(data){
@@ -230,3 +245,40 @@ $("#checkAll").click(function() {
 				})
 	}
 })
+//根据条件查找图片
+function findimg(){
+	var value = $("#value").val();
+	var type = $("#type").val();
+
+	if( type == ''){
+		layer.msg('请选择筛选条件！');
+		return false;
+	}
+	else if( value == ''){
+		layer.msg('请输入值！');
+		return false;
+	}
+	window.location.href = '/manage/images/' + type + '/?value=' + value;
+	
+}
+//根据时间查找图片
+function find_date_img(){
+	//获取上传者
+	var user = $("#user").val();
+	
+	//时间组合
+	var date = start_time + '|' + end_time;
+	if( user == ''){
+		layer.msg('请选择筛选条件！');
+		return FALSE;
+	}
+	else if( start_time == ''){
+		layer.msg('请选择开始日期！');
+		return FALSE;
+	}
+	else if(end_time == ''){
+		layer.msg('请选择结束日期！');
+		return FALSE;
+	}
+	window.location.href = '/manage/images/' + user + '/?date=' + date;
+}

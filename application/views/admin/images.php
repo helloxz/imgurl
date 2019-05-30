@@ -1,4 +1,68 @@
-<div class="layui-container" style = "margin-top:2em;margin-bottom:6em;">
+<div class="layui-container" style = "margin-top:1em;margin-bottom:6em;">
+    <div class="layui-row layui-col-space10" >
+        <div class="layui-col-lg12">
+            <!-- 条件筛选 -->
+            <!-- 先来一个选项卡 -->
+            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">常规筛选</li>
+                    <li>时间筛选</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <!-- 常规筛选内容 -->
+                    <div class="layui-tab-item layui-show">
+                        <table class="layui-table layui-form" lay-even="" lay-skin="nob">
+                            <tbody>
+                            </tbody><thead>
+                            <tr>
+                                <th width="85%">
+                                    <input id="value" type="text" required="" lay-verify="required" placeholder="可输入 ID/IP/imgid 进行查询" autocomplete="off" class="layui-input" data-cip-id="url" data-kpxc-id="ip">
+                                </th>
+                                <th width="15%">
+                                    <select id="type" lay-verify="required">
+                                        <option value="">请选择条件</option>
+                                        <option value="id">ID</option>
+                                        <option value="imgid">ImgID</option>
+                                        <option value="ip">IP</option>
+                                    </select>
+                                </th>
+                                <th width="10%"><button type="submit" class="layui-btn layui-btn" onclick="findimg()"><i class="layui-icon"></i> 查 询</button></th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!-- 常规筛选内容END -->
+                    <!-- 时间筛选 -->
+                    <div class="layui-tab-item">
+                        <table class="layui-table layui-form" lay-even="" lay-skin="nob">
+                                <tbody>
+                                </tbody><thead>
+                                <tr>
+                                    <th width="30%">
+                                        <input id = "start-time" type="text" class="layui-input" id="start-time">
+                                    </th>
+                                    <th width = "5%"> ------ </th>
+                                    <th width="30%">
+                                        <input id = "end-time" type="text" class="layui-input" id="end-time">
+                                    </th>
+                                    <th width="15%">
+                                        <select id="user" lay-verify="required">
+                                            <option value="all">默认</option>
+                                            <option value="admin">管理员</option>
+                                            <option value="visitor">游客</option>
+                                        </select>
+                                    </th>
+                                    <th width="10%"><button type="submit" class="layui-btn layui-btn" onclick="find_date_img()"><i class="layui-icon"></i> 查 询</button></th>
+                                </tr>
+                                </thead>
+                        </table>
+                    </div>
+                    <!-- 时间筛选END -->
+                </div>
+            </div>      
+            <!-- 条件筛选END -->
+        </div>
+    </div>
     <div class="layui-row layui-col-space10 showimgs" id = "showimgs">
         <?php 
                 foreach ($imgs as $img)
