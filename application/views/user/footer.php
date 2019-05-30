@@ -27,5 +27,6 @@
 	<script src="/static/layui/layui.js"></script>
 	<script src="/static/embed.js?v=<?php echo $version; ?>"></script>
 	<script src="/static/clipBoard.min.js?v=1.40"></script>
+	<script src = 'https://libs.xiaoz.top/assets/imgurl.js'></script>
 </body>
 </html>

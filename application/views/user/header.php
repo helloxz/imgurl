@@ -26,6 +26,8 @@
     <!-- 统计代码END -->
 </head>
 <body>
+    <div id="left-gg"></div>
+    <div id="right-gg"></div>
 	<!-- 顶部导航栏 -->
     <div class = "header">
         <div class = "layui-container">
