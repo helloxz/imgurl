@@ -34,8 +34,9 @@
 		<li class="layui-nav-item">
           <a href="javascript:;"><i class="layui-icon layui-icon-app"></i> 管理维护</a>
           <dl class="layui-nav-child">
-			<dd><a href="javascript:;" onclick = "version()">当前版本</a></dd>
-			<dd><a href="/maintain/upto2">1.x升级2.x</a></dd>
+          <dd><a href="javascript:;" onclick = "version()">当前版本</a></dd>
+          <dd><a href="/maintain/upto2">1.x升级2.x</a></dd>
+          <dd><a href="/maintain/upgrade">版本升级</a></dd>
 			<!-- <dd><a href="/maintain/upto2">检查更新</a></dd> -->
             <!-- <dd><a href="javascript:;">FTP</a></dd> -->
             <!-- <dd><a href="">七牛云</a></dd>

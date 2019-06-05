@@ -323,5 +323,46 @@
             $datas = $this->db->query($sql)->result_array();
             return $datas;
         }
+        //v2.2升级v2.3
+        public function to23(){
+            // $sql = 'alter table "img_images" ADD "token"  TEXT(16) DEFAULT NULL;
+            // CREATE UNIQUE INDEX "token" ON "img_images" ("token" ASC);
+            // ';
+            $sqls = array(
+                'alter table "img_images" ADD "token"  TEXT(16) DEFAULT NULL;',
+                'CREATE UNIQUE INDEX "token" ON "img_images" ("token" ASC)',
+                'CREATE UNIQUE INDEX "imginfo_imgid" ON "img_imginfo" ("imgid" ASC)'
+            );
+            //遍历SQL语句
+            foreach ($sqls as $value) {
+                $datas = $this->db->query($value);
+            }
+            //var_dump($datas);
+            if($datas){
+                return TRUE;
+            }
+            else{
+                return FALSE;
+            }
+        }
+        //查询站点主域名
+        public function get_domain() {
+            $sql = 'SELECT "values" FROM "img_options" WHERE `name` = "site_url"';
+            $data = $this->db->query($sql)->row();
+            
+            if($data){
+                return $data->values;
+            }
+            else{
+                return FALSE;
+            }
+        }
+        //根据token查询图片信息
+        public function get_token($value){
+           //先获取img id
+           $sql = "SELECT a.*,b.mime,b.width,b.height,b.views,b.ext,b.client_name FROM img_images AS a INNER JOIN img_imginfo AS b ON a.token = '{$value}' AND a.imgid = b.imgid";
+           $imginfo = $this->db->query($sql)->row();
+           return $imginfo;
+        }
     }
 ?>

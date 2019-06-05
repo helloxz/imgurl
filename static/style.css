@@ -1,8 +1,8 @@
 body{
-    background-image:url('/static/images/bg.jpg');
+    /*background-image:url('/static/images/bg.jpg');*/
     background-size: cover;
-    width: 100%;
-    color:#232323;
+    /*width: 100%;
+    color:#232323;*/
 }
 @media screen and (max-width:640px) {
 	body{
@@ -358,7 +358,7 @@ body{
     margin-left:auto;
     margin-right:auto;
     
-    border: 1px solid #ECECEC;
+    /*border: 1px solid #ECECEC;*/
     border-radius: 5px;
     max-height: 175px;
 }
@@ -604,4 +604,11 @@ body{
     #left-gg,#right-gg{
         display: none;
     }
+}
+.title h2{
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+#links .layui-input{
+    height:32px;
 }

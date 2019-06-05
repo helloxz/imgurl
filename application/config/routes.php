@@ -56,3 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['api/upload'] = 'upload/localhost';
 $route['api/upload/parse'] = 'upload/parse';
 $route['api/upload/(:any)'] = 'upload/localhost/$1';
+$route['api/parse'] = '/upload/parse';
+//删除链接
+$route['delete/(:any)'] = '/del/token/$1';

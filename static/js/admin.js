@@ -282,3 +282,18 @@ function find_date_img(){
 	}
 	window.location.href = '/manage/images/' + user + '/?date=' + date;
 }
+//$("#quanxuan").click(function(){ 
+//	$("input[name='checkbox']").attr("checked","true"); 
+//})
+
+/*
+下面几个操作的方法来源于：https://www.cnblogs.com/diony/p/8028424.html
+*/
+//全选按钮
+function check_all(){
+	$("input[name='chk']").attr("checked","true"); 
+}
+//取消全选
+function cancel_all(){
+	$("input[name='chk']").removeAttr("checked"); 
+}

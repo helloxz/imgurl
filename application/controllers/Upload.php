@@ -21,6 +21,8 @@
         public $temp;
         //用户是否已经登录的属性
         protected $user;
+        //获取站点主域名
+        protected $main_domain;
         //构造函数
         public function __construct()
         {
@@ -44,6 +46,8 @@
             $this->load->library('basic');
             //加载查询模型
             $this->load->model('query','',TRUE);
+            $this->main_domain = $this->basic->domain();
+            
             //用户已经登录
             if($this->basic->is_login(FALSE)){
                 $this->user = 'admin';
@@ -155,7 +159,17 @@
                 }
                 //图片没有上传过
                 else{
-                    //需要插入到images表的数据
+                    $arr = array(
+                        "ip"    =>  get_ip(),
+                        "ua"    =>  get_ua(),
+                        "date"  =>  $this->date
+                    );
+                    
+                    //生成token
+                    $token = $this->token($arr);
+                    //生成删除链接
+                    $delete = $this->main_domain.'/delete/'.$token;
+                    //需要插入到img_images表的数据
                     $datas = array(
                         "imgid"     =>  $imgid,
                         "path"      =>  $relative_path,
@@ -165,7 +179,8 @@
                         "ua"        =>  get_ua(),
                         "date"      =>  $this->date,
                         "user"      =>  $this->user,
-                        "level"     =>  'unknown'
+                        "level"     =>  'unknown',
+                        "token"     =>  $token
                     );
                     //需要插入到imginfo表的数据
                     $imginfo = array(
@@ -189,7 +204,8 @@
                         "url"               =>  $url,
                         "thumbnail_url"     =>  $thumbnail_url,
                         "width"             =>  $data['image_width'],
-                        "height"            =>  $data['image_height']
+                        "height"            =>  $data['image_height'],
+                        "delete"            =>  $delete
                     );
                     //根据不同的类型返回不同的数据
                     $this->re_data($type,$info);
@@ -441,6 +457,23 @@
             );
             $this->succeed_msg($info);
             //echo $re;
+        }
+        /*
+        1. 该方法生成图片的唯一删除token
+        2. 参数为一个数组，内容为IP/UA/DATE
+        3. ip + ua + date + 4位随机数，进行md5加密得到token
+        */
+        protected function token($arr){
+            $ip = $arr['ip'];
+            $ua = $arr['ua'];
+            $date = $arr['date'];
+            //生成4位随机数
+            $str =  GetRandStr(4);
+            $token = $ip.$ua.$date.$str;
+            $token = md5($token);
+            //token只需要16位
+            $token = substr($token, 8, 16);
+            return $token;
         }
     }
 ?>

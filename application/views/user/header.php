@@ -45,8 +45,13 @@
                             <li class="layui-nav-item"><a href="/home/multiple"><i class="layui-icon layui-icon-upload"></i> 多图上传</a></li>
                             <li class="layui-nav-item"><a href="/found"><i class="layui-icon layui-icon-search"></i> 探索发现</a></li>
                             <li class="layui-nav-item"><a href="/home/log"><i class="layui-icon layui-icon-notice"></i> 更新日志</a></li>
-                            <li class="layui-nav-item"><a href="https://doc.xiaoz.me/#/imgurl2/api" target = "_blank"><i class="layui-icon layui-icon-template-1"></i> API</a></li>
-                            <li class="layui-nav-item"><a href="https://doc.xiaoz.me/#/imgurl2/" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe705;</i> 帮助文档</a></li>
+                            <li class="layui-nav-item">
+                                <a href="https://dwz.ovh/imgurldoc" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe705;</i> 帮助文档</a>
+                                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                                    <dd><a href="https://www.xiaoz.me/doc/doc-imgurl/install" rel = "nofollow" target = "_blank">安装ImgURL</a></dd>
+                                    <dd><a href="https://www.xiaoz.me/doc/doc-imgurl/api" rel = "nofollow" target = "_blank">ImgURL API</a></dd>
+                                    </dl>
+                            </li>
                             <li class="layui-nav-item"><a href="https://github.com/helloxz/imgurl" target = "_blank" rel = "nofollow"><i class="layui-icon">&#xe635;</i> 源码</a></li>
                             <li class="layui-nav-item"><a href="/page/use"><i class="layui-icon">&#xe60b;</i> 关于</a></li>
                             <!-- 简单判断用户是否登录 -->

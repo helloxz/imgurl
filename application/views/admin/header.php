@@ -13,7 +13,7 @@
 	<title><?php echo $admin_title; ?> - ImgURL后台管理</title>
   	<link rel="stylesheet" href="/static/layui/css/layui.css">
   	<link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/static/css/admin.css?v=<?php echo $version; ?>">
+	  <link rel="stylesheet" href="/static/css/admin.css?v=<?php echo $version; ?>">
 	<script src = "/static/js/jquery.min.js"></script>
 </head>
 <body class="layui-layout-body">

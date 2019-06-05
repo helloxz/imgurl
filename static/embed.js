@@ -68,6 +68,7 @@ layui.use(['upload','form','element','layer','flow'], function(){
                     $("#html").val("<img src = '" + res.url + "' />");
                     $("#markdown").val("![](" + res.url + ")");
                     $("#bbcode").val("[img]" + res.url + "[/img]");
+                    $("#dlink").val(res.delete);
                     $("#imgshow").show();
                     //对图片进行鉴黄识别
                     identify(res.id);
@@ -95,6 +96,7 @@ layui.use(['upload','form','element','layer','flow'], function(){
                 $("#re-html pre").empty();
                 $("#re-md pre").empty();
                 $("#re-bbc pre").empty();
+                $("#re-dlink pre").empty();
                 layer.load(); //上传loading
                 n = 0;
             }
@@ -110,7 +112,7 @@ layui.use(['upload','form','element','layer','flow'], function(){
                 if(res.code == 200){
                     //得到百分比
                     //var col = (n / total) * 100;
-                    multiple(res.url);
+                    multiple(res.url,res.delete);
                     //对图片进行鉴黄识别
                     identify(res.id);
                     //element.progress('up-status', col + '%');
@@ -128,11 +130,12 @@ layui.use(['upload','form','element','layer','flow'], function(){
 });
 
 //显示多图上传结果
-function multiple(url){
+function multiple(url,dlink){
     $("#re-url pre").append(url + "<br>");
     $("#re-html pre").append("&lt;img src = '" + url + "' /&gt;" + "<br>");
     $("#re-md pre").append("![](" + url + ")" + "<br>");
     $("#re-bbc pre").append("[img]" + url + "[/img]" + "<br>");
+    $("#re-dlink pre").append(dlink + "<br>");
 }
 
 //复制链接
@@ -267,3 +270,8 @@ function createAndDownloadFile(fileName, content) {
     aTag.click();
     URL.revokeObjectURL(blob);
 }
+
+//改用jquery异步加载背景图
+$(document).ready(function(){
+	$("body").css("background-image","url('/static/images/bg.jpg')");
+});

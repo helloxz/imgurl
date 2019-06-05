@@ -40,14 +40,14 @@
             <!-- 图片显示区域 -->
             <!-- 显示缩略图 -->
             <div class="layui-col-lg4">
-                <div id = "img-thumb"><a href="" target = "_blank"><img src="" alt=""></a></div>
+                <div id = "img-thumb"><a href="" target = "_blank"><img src="" alt="点此可查看详情"></a></div>
             </div>
             <!-- 显示地址 -->
             <div class="layui-col-lg7 layui-col-md-offset1">
                 <div id="links">
-                    <table class="layui-table" lay-skin="nob">
+                    <table class="layui-table" lay-skin="nob" lay-size="sm">
                         <colgroup>
-                            <col width="80">
+                            <col width="100">
                             <col width="450">
                             <col>
                         </colgroup>
@@ -72,6 +72,11 @@
                                 <td><input type="text" class="layui-input" id="bbcode" data-cip-id="bbcode"></td>
                                 <td><a href="javascript:;" class="layui-btn layui-btn-sm" onclick="copyurl('bbcode')">复制</a></td>
                             </tr>
+                            <tr>
+                                <td>Delete Link</td>
+                                <td><input type="text" class="layui-input" id="dlink" data-cip-id="dlink"></td>
+                                <td><a href="javascript:;" class="layui-btn layui-btn-sm" onclick="copyurl('dlink')">复制</a></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -91,7 +96,7 @@
 	    targetElement: load1,
 		isCompleteImg:false,
 	    data:{
-	        name:"alanzhang",
+	        name:"imgurl",
 	    },
 	    success:function(data){
 	        //转为对象
@@ -125,11 +130,13 @@
 	        }
 	        else{
 		        layer.msg(res.msg);
+		        layer.closeAll('loading');
 	        }
 	    },
 		error: function(error){
 			layer.closeAll('loading'); 
 			layer.msg('上传失败！');
+			layer.closeAll('loading');
 		}
 	});
 </script>

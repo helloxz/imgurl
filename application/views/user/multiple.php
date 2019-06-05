@@ -25,6 +25,7 @@
                     <li>HTML</li>
                     <li>Markdown</li>
                     <li>BBCode</li>
+                    <li>Delete Link</li>
                 </ul>
                 <div class="layui-tab-content" style="height: 100px;">
                     <!-- 第一个选显卡结果 -->
@@ -41,6 +42,10 @@
                     </div>
                     <!-- 返回BBCode结果 -->
                     <div class="layui-tab-item" id = "re-bbc">
+                        <pre></pre>
+                    </div>
+                    <!-- 返回删除链接 -->
+                    <div class="layui-tab-item" id = "re-dlink">
                         <pre></pre>
                     </div>
                 </div>

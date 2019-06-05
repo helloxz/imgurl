@@ -134,5 +134,10 @@
                     break;
             }
         }
+        //获取站点主域名
+        public function domain(){
+            $domain = $this->CI->query->get_domain();
+            return $domain;
+        }
     }
 ?>

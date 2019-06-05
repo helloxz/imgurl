@@ -7,6 +7,22 @@
             <li class="layui-timeline-item">
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title">2019年6月</h3>
+                    <p>ImgURL v2.3发布</p>
+                    <ul>
+                        <li>API支持base64编码上传</li>
+                        <li>支持.webp上传</li>
+                        <li>增加IIS rewrite规则</li>
+                        <li>SEO优化</li>
+                        <li>优化探索发现，最多显示160张图片</li>
+                        <li>优化图片管理，支持按ID/ImgID/IP/时间等条件筛选图片，已支持全选操作</li>
+                        <li>修复部分用户启用CDN后无法登录问题</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                <div class="layui-timeline-content layui-text">
                 <h3 class="layui-timeline-title">2019年4月</h3>
                     <p>ImgURL v2.2发布</p>
                     <ul>

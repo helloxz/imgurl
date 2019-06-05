@@ -140,7 +140,15 @@
 		<div class="layui-col-lg6" id = "paging">
             <?php echo $page; ?>
         </div>
-        <div class="layui-col-lg6">
+        <div class="layui-col-lg3">
+	        <span>操作：</span>
+	        <div class="layui-btn-group">
+			  <button type="button" class="layui-btn layui-btn-xs" onclick = "check_all()">全选</button>
+			  <button type="button" class="layui-btn layui-btn-xs" onclick = "cancel_all()">取消全选</button>
+			  <!--<button type="button" class="layui-btn layui-btn-xs" onclick = "invert_selection()">反选</button>-->
+			</div>
+	    </div>
+        <div class="layui-col-lg3">
             <!-- <button class="layui-btn layui-btn-xs" id = "checkAll">全选</button>--> <label>选中项：</label><button class="layui-btn layui-btn-xs layui-btn-danger" onclick = "del_more()">删除</button> 
         </div>
 	</div>

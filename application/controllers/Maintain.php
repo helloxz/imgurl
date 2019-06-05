@@ -58,6 +58,15 @@
             // $query = $this->db->query($sql)->row();
             // var_dump($query);
         }
+        //版本升级
+        public function upgrade(){
+            $data['admin_title']    =   'ImgURL升级';
+            //加载视图
+            $this->load->view('admin/header',$data);
+            $this->load->view('admin/left');
+            $this->load->view('admin/upgrade');
+            $this->load->view('admin/footer');
+        }
         
     }
 ?>

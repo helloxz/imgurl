@@ -1,3 +1,4 @@
+<script src="/static/js/Chart.min.js"></script>
 <div class="layui-container" style = "margin-top:2em;">
 	<div class="layui-row layui-col-space20">
 		<div class="layui-col-lg3">
