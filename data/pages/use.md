@@ -37,4 +37,5 @@ ImgURL诞生于2017年12月，是一款开源的图片管理系统（简称图�
 ### 联系方式
 * ImgURL官方社区:[https://ttt.sh/](https://ttt.sh/category/6/)
 * Blog:[https://www.xiaoz.me/](https://www.xiaoz.me/)
+* ImgURL交流群：341195621
 * QQ:337003006

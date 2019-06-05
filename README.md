@@ -26,7 +26,7 @@ ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发。
 * pathinfo
 
 ### 安装
-* 常规安装请参考帮助文档：[https://doc.xiaoz.me/](https://doc.xiaoz.me/#/imgurl2/)
+* 常规安装请参考帮助文档：[https://www.xiaoz.me/doc/](https://www.xiaoz.me/doc/doc-imgurl)
 * 宝塔面板安装ImgURL参考：[https://www.xiaoz.me/archives/12081](https://www.xiaoz.me/archives/12081)
 
 ### Demo
@@ -52,4 +52,5 @@ ImgURL的诞生离不开以下项目，在此表示感谢。
 ### 联系我
 * Blog：[https://www.xiaoz.me/](https://www.xiaoz.me/)
 * 社区支持：[https://ttt.sh/](https://ttt.sh/category/6/)
+* ImgURL交流群：341195621
 * QQ:337003006

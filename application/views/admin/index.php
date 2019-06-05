@@ -58,7 +58,13 @@
 		<div class="layui-col-lg3">
 			<div class = "analyze">
 				<h3><i class="fa fa-qq"></i> 技术支持（付费）</h3>
-				<p>QQ:337003006</p>
+				<p>QQ:<a href = "http://wpa.qq.com/msgrd?v=3&uin=337003006&site=qq&menu=yes" rel = "nofollow" target = "_blank" title = "联系作者，获得技术支持。">337003006</a></p>
+			</div>
+		</div>
+		<div class="layui-col-lg3">
+			<div class = "analyze">
+				<h3><i class="fa fa-qq"></i> QQ交流群</h3>
+				<p><a href = "//shang.qq.com/wpa/qunwpa?idkey=1994c352ea864ed09a00fd3cfb0f80c946850a70e98551736be69f4253f09136" rel = "nofollow" target = "_blank" title = "加入ImgURL交流群，和大家一起讨论。">341195621</a></p>
 			</div>
 		</div>
 	</div>
