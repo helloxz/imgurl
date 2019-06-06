@@ -272,6 +272,6 @@ function createAndDownloadFile(fileName, content) {
 }
 
 //改用jquery异步加载背景图
-$(document).ready(function(){
-	$("body").css("background-image","url('/static/images/bg.jpg')");
-});
+// $(document).ready(function(){
+// 	$("body").css("background-image","url('/static/images/bg.jpg')");
+// });

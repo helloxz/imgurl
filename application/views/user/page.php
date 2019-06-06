@@ -6,7 +6,7 @@
 		<div class="layui-col-lg3">
 			<div id="page-sidebar">
 				<div class = "sidebar">
-					<a href="https://e.aiguobit.com/?from=xiaoz" target="_blank" rel="nofollow noopener"><img src = 'https://i.bmp.ovh/imgs/2019/03/009e7ca037f6a1a2.png' /></a>
+					<a href="https://e.aiguobit.com/?from=xiaoz" target="_blank" rel="nofollow noopener"><img src = 'https://i.bmp.ovh/imgs/2019/05/e35a8c54260c8410.jpg' /></a>
 				</div>
 				<div class = "sidebar">
 					<a href="https://dwz.ovh/tencent" target="_blank" rel="nofollow">
