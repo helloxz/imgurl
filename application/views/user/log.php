@@ -13,6 +13,7 @@
                         <li>API支持base64编码上传</li>
                         <li>支持.webp上传</li>
                         <li>增加IIS rewrite规则</li>
+                        <li>增加图片删除链接</li>
                         <li>SEO优化</li>
                         <li>优化探索发现，最多显示160张图片</li>
                         <li>优化图片管理，支持按ID/ImgID/IP/时间等条件筛选图片，已支持全选操作</li>
