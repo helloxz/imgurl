@@ -1,0 +1,14 @@
+{
+    "name": "helloxz/imgurl",
+    "description": "ImgURL is a simple, pure graph bed program, simple installation, powerful.",
+    "type": "project",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "xiaoz",
+            "email": "xiaoz93@outlook.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
