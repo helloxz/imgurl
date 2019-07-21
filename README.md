@@ -1,6 +1,8 @@
 # ImgURL
 ImgURL是一款简单、纯粹的图床程序，使用PHP + SQLite 3开发。
 
+> 2019-07-21:ImgURL Pro专业版已经发布，支持多个外部存储，MySQL支持、无广告，专业技术支持，自建图床的极佳选择，6折促销中:[https://dwz.ovh/9](https://dwz.ovh/9)
+
 ![](https://i.bmp.ovh/imgs/2018/12/06cf0ac3b7625b6b.png)
 
 ![](https://i.bmp.ovh/imgs/2018/12/f0b565e2e0ffa166.png)
