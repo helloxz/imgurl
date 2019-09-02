@@ -364,5 +364,13 @@
            $imginfo = $this->db->query($sql)->row();
            return $imginfo;
         }
+        //获取上传限制
+        public function get_limit(){
+            $sql = "SELECT `values` FROM img_options WHERE `name` = 'uplimit' LIMIT 1;";
+            $query = $this->db->query($sql);
+            //只获取一行
+            $row = $query->row();
+            return $row->values;
+        }
     }
 ?>

@@ -67,6 +67,12 @@
 				<p><a href = "//shang.qq.com/wpa/qunwpa?idkey=1994c352ea864ed09a00fd3cfb0f80c946850a70e98551736be69f4253f09136" rel = "nofollow" target = "_blank" title = "加入ImgURL交流群，和大家一起讨论。">341195621</a></p>
 			</div>
 		</div>
+        <div class="layui-col-lg3">
+            <div class = "analyze">
+                <h3><i class="fa fa-paypal"></i> 购买专业版</h3>
+                <p><a href = "https://dwz.ovh/9" rel = "nofollow" target = "_blank" title = "ImgURL Pro专业版，功能更加强大。">https://dwz.ovh/9</a></p>
+            </div>
+        </div>
 	</div>
 </div>
 
